@@ -1,0 +1,41 @@
+/* Efeito de scroll infinito */
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.carouselContainer {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.carouselTrack {
+  display: flex;
+  /* ATUALIZADO: Largura de 1 card (384px) x 12 cards (6 originais + 6 duplicados) */
+  width: calc(384px * 12); 
+  /* ATUALIZADO: Aumentamos a duração para a velocidade não ficar muito rápida */
+  animation: scrollLeft 80s linear infinite; 
+  gap: 1.5rem;
+}
+
+.carouselContainer:hover .carouselTrack {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .carouselTrack {
+    /* ATUALIZADO: Ajuste para ecrãs menores */
+    animation-duration: 60s;
+  }
+}
