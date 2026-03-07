@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.dark body {
+  background-image: radial-gradient(
+    circle at var(--x) var(--y),
+    rgba(59, 130, 246, 0.1),
+    transparent 25vw
+  );
+}
