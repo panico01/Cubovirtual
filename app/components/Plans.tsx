@@ -54,7 +54,7 @@ const PlanCard = ({ title, priceMonthly, priceAnnual, description, features, rec
   
   const priceHelperText = billingCycle === 'annual' 
     ? `Total R$ ${annualTotal} cobrado anualmente`
-    : `Ou R$ ${priceAnnual}/mês no plano anual`;
+    : `R$ ${priceAnnual}/mês no plano anual`;
 
   return (
     <div className={`
