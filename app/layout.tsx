@@ -1,5 +1,5 @@
 // app/layout.tsx
-import { Poppins } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import React from 'react';
 import Script from 'next/script';
@@ -7,16 +7,16 @@ import type { Metadata } from 'next';
 
 import ClientLayout from './components/ClientLayout'; // O caminho de importação foi ajustado
 
-const poppins = Poppins({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['400', '600', '700'],
+  weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
   preload: true,
 });
 
 export const metadata: Metadata = {
-  title: "CUBOVIRTUAL - Agência Digital",
-  description: "Agência digital completa: criação de sites, aplicativos e soluções personalizadas.",
+  title: "Cubo Virtual — Produtos digitais que movem negócios",
+  description: "Sites, sistemas, aplicativos e marketing digital desenvolvidos para transformar presença online em resultado.",
   verification: {
     google: "m4h1GrjDlRyfhDfnNOporfqbjzGx2F8aoQCEThklQ8c",
   },
@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
       </head>
-      <body className={poppins.className}>
+      <body className={jakarta.className}>
         <ClientLayout>
           {children}
         </ClientLayout>

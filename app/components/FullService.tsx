@@ -1,53 +1,43 @@
-import React from 'react';
-import { Smartphone, Code, BarChart3, Palette, Share2, Lightbulb } from 'lucide-react';
+import { ArrowUpRight, BarChart3, Code2, Lightbulb, Palette, Share2, Smartphone } from 'lucide-react'
 
-type ServiceItemProps = {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-};
+const services = [
+  { icon: Smartphone, code: 'APP', title: 'Aplicativos mobile', text: 'Experiências nativas e híbridas para iOS e Android.' },
+  { icon: Code2, code: 'SYS', title: 'Sistemas personalizados', text: 'Ferramentas sob medida para organizar e acelerar operações.' },
+  { icon: BarChart3, code: 'ADS', title: 'Tráfego pago', text: 'Campanhas orientadas a dados para atrair quem realmente importa.' },
+  { icon: Palette, code: 'ID', title: 'Identidade visual', text: 'Marcas coerentes, reconhecíveis e prontas para se destacar.' },
+  { icon: Share2, code: 'SOC', title: 'Redes sociais', text: 'Conteúdo e presença capazes de construir comunidade.' },
+  { icon: Lightbulb, code: 'MKT', title: 'Consultoria digital', text: 'Clareza estratégica para escolher e executar o próximo passo.' },
+]
 
-const ServiceItem = ({ icon, title, description }: ServiceItemProps) => (
-  <div className="relative p-8 rounded-2xl bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors group">
-    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 dark:from-blue-500/20 dark:to-purple-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-    
-    <div className="relative">
-      <div className="mb-4 inline-block p-3 rounded-lg bg-blue-100 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400">
-        {icon}
-      </div>
-      <h3 className="text-xl font-bold text-gray-900 dark:text-white">{title}</h3>
-      <p className="mt-2 text-gray-600 dark:text-neutral-400">{description}</p>
-    </div>
-  </div>
-);
-
-const FullService = () => {
-  const services = [
-    { icon: <Smartphone size={28}/>, title: "Desenvolvimento de Apps Mobile", description: "Criamos aplicativos nativos e híbridos para iOS e Android, transformando sua ideia em uma ferramenta poderosa." },
-    { icon: <Code size={28}/>, title: "Sistemas Desktop Personalizados", description: "Softwares sob medida para otimizar a gestão e os processos internos da sua empresa." },
-    { icon: <BarChart3 size={28}/>, title: "Gestão de Tráfego Pago", description: "Campanhas no Google Ads e Social Ads para atrair o público certo e gerar resultados rápidos." },
-    { icon: <Palette size={28}/>, title: "Identidade Visual e Branding", description: "Desenvolvemos logotipos e manuais de marca para sua empresa ser reconhecida e lembrada." },
-    { icon: <Share2 size={28}/>, title: "Gestão de Redes Sociais", description: "Planejamento, criação de conteúdo e interação para construir uma comunidade engajada." },
-    { icon: <Lightbulb size={28}/>, title: "Consultoria de Marketing Digital", description: "Analisamos seu negócio e traçamos as melhores estratégias para você alcançar seus objetivos." }
-  ];
-
+export default function FullService() {
   return (
-    <section id="servicos" className="py-16 bg-white dark:bg-black relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/grid-light.svg')] dark:bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-50 dark:opacity-20"></div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">Uma Agência de Soluções Completas</h2>
-          <p className="text-lg text-gray-600 dark:text-neutral-400 mt-4 max-w-2xl mx-auto">Vamos além da criação de sites. Oferecemos um ecossistema de soluções para sua marca prosperar no digital.</p>
+    <section id="servicos" className="site-grid border-b-2 border-line">
+      <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 sm:py-28">
+        <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div>
+            <p className="eyebrow text-primary">Soluções integradas</p>
+            <h2 className="section-title mt-6 max-w-4xl text-balance">Do primeiro clique ao próximo nível.</h2>
+          </div>
+          <p className="max-w-sm text-base font-medium text-subtle">Escolha uma frente ou combine especialidades em uma operação digital completa.</p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <ServiceItem key={index} {...service} />
+
+        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {services.map(({ icon: Icon, code, title, text }, index) => (
+            <article key={code} className={`group relative min-h-72 overflow-hidden border-2 border-line bg-card p-7 transition-all hover:-translate-y-1 hover:border-ink hover:shadow-brutal ${index === 0 ? 'lg:col-span-2' : ''}`}>
+              <div className="flex items-start justify-between">
+                <span className="border-2 border-line px-2 py-1 text-xs font-extrabold tracking-widest">{code}</span>
+                <Icon size={30} strokeWidth={1.8} aria-hidden="true" />
+              </div>
+              <div className="absolute inset-x-7 bottom-7">
+                <h3 className="flex items-end justify-between gap-4 text-2xl font-extrabold tracking-[-.04em] sm:text-3xl">
+                  {title}<ArrowUpRight className="shrink-0 text-primary transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
+                </h3>
+                <p className="mt-3 max-w-lg text-subtle">{text}</p>
+              </div>
+            </article>
           ))}
         </div>
       </div>
     </section>
-  );
-};
-
-export default FullService;
+  )
+}

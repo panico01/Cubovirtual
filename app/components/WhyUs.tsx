@@ -1,46 +1,53 @@
-import React from 'react';
-import { Target, Zap, HeartHandshake } from 'lucide-react';
+import { HeartHandshake, Target, Zap } from 'lucide-react'
 
-type FeatureCardProps = {
-  icon: React.ReactNode;
-  title: string;
-  children: React.ReactNode;
-};
+const principles = [
+  {
+    icon: Target,
+    number: '01',
+    title: 'Resultado antes do ruído',
+    text: 'Cada escolha de design e tecnologia começa nos objetivos reais do seu negócio.',
+  },
+  {
+    icon: Zap,
+    number: '02',
+    title: 'Velocidade com critério',
+    text: 'Processos enxutos, tecnologia moderna e entregas que não sacrificam qualidade.',
+  },
+  {
+    icon: HeartHandshake,
+    number: '03',
+    title: 'Parceria sem distância',
+    text: 'Comunicação direta e acompanhamento próximo do início à evolução do projeto.',
+  },
+]
 
-const FeatureCard = ({ icon, title, children }: FeatureCardProps) => {
+export default function WhyUs() {
   return (
-    <div className="flex flex-col items-center text-center">
-      <div className="p-4 bg-blue-100 dark:bg-blue-600/20 rounded-full mb-4">
-        {icon}
-      </div>
-      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{title}</h3>
-      <p className="text-gray-600 dark:text-neutral-400">{children}</p>
-    </div>
-  );
-};
-
-const WhyUs = () => {
-  return (
-    <section id="why-us" className="py-16 bg-gray-50 dark:bg-neutral-900">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">Por Que o Cubo Virtual?</h2>
-          <p className="text-lg text-gray-600 dark:text-neutral-400 mt-4 max-w-2xl mx-auto">O nosso compromisso vai além do código. Somos o seu parceiro estratégico para o sucesso digital.</p>
+    <section id="metodo" className="border-b-2 border-line bg-card">
+      <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 sm:py-28">
+        <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+          <div>
+            <p className="eyebrow text-primary">Nosso método</p>
+            <h2 className="section-title mt-6 text-balance">Menos promessa.<br />Mais projeto.</h2>
+          </div>
+          <p className="max-w-2xl text-lg font-medium leading-relaxed text-subtle lg:justify-self-end">
+            Não entregamos apenas telas bonitas. Unimos visão de negócio, experiência e engenharia para criar produtos digitais úteis, rápidos e preparados para crescer.
+          </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-          <FeatureCard icon={<Target size={32} className="text-blue-600 dark:text-blue-400" />} title="Foco em Resultados">
-            Não criamos apenas sites, criamos máquinas de conversão. Cada projeto é pensado para atingir os seus objetivos de negócio.
-          </FeatureCard>
-          <FeatureCard icon={<Zap size={32} className="text-blue-600 dark:text-blue-400" />} title="Tecnologia de Ponta">
-            Utilizamos as ferramentas mais modernas e performáticas do mercado para garantir que o seu site seja rápido, seguro e escalável.
-          </FeatureCard>
-          <FeatureCard icon={<HeartHandshake size={32} className="text-blue-600 dark:text-blue-400" />} title="Suporte Humanizado">
-            Estamos sempre disponíveis para ajudar. Conte com um atendimento próximo e dedicado para resolver qualquer questão.
-          </FeatureCard>
+
+        <div className="mt-14 grid border-l-2 border-t-2 border-line md:grid-cols-3">
+          {principles.map(({ icon: Icon, number, title, text }) => (
+            <article key={number} className="group min-h-72 border-b-2 border-r-2 border-line bg-canvas p-7 transition-colors hover:bg-muted sm:p-8">
+              <div className="flex items-start justify-between">
+                <span className="text-sm font-extrabold text-primary">/{number}</span>
+                <Icon size={30} strokeWidth={1.8} aria-hidden="true" />
+              </div>
+              <h3 className="mt-16 text-2xl font-extrabold leading-tight tracking-[-.04em]">{title}</h3>
+              <p className="mt-4 text-base leading-relaxed text-subtle">{text}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
-  );
-};
-
-export default WhyUs;
+  )
+}

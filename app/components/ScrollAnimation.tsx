@@ -1,6 +1,6 @@
 'use client'; // Animações de cliente precisam desta diretiva
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import React from 'react';
 
 type ScrollAnimationProps = {
@@ -9,12 +9,14 @@ type ScrollAnimationProps = {
 };
 
 const ScrollAnimation = ({ children, className }: ScrollAnimationProps) => {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }} // Começa invisível e 50px para baixo
-      whileInView={{ opacity: 1, y: 0 }} // Anima para visível e na posição original
-      viewport={{ once: true }} // A animação ocorre apenas uma vez
-      transition={{ duration: 0.8, ease: "easeOut" }} // Duração e tipo de transição
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.08 }}
+      transition={{ duration: shouldReduceMotion ? 0 : 0.4, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}

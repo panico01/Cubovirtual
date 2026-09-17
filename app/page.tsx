@@ -6,13 +6,12 @@ import FullService from './components/FullService'
 import Faq from './components/Faq'
 import Footer from './components/Footer'
 import WhyUs from './components/WhyUs'
-import SectionSeparator from './components/SectionSeparator'
 import ScrollAnimation from './components/ScrollAnimation'
 import Testimonials from './components/Testimonials'
 
 export const metadata: Metadata = {
-  title: 'Cubo Virtual - Criação de Sistemas Profissionais e de Alta Performance',
-  description: 'Transformamos ideias em realidade digital. Crie seu site profissional de alta performance e impulsione seu negócio na web.',
+  title: 'Cubo Virtual — Sites e sistemas que trabalham pelo seu negócio',
+  description: 'Criamos experiências digitais rápidas, estratégicas e prontas para transformar atenção em oportunidade.',
 }
 
 export default function Home() {
@@ -22,27 +21,22 @@ export default function Home() {
       <Hero />
 
       <ScrollAnimation>
-        <SectionSeparator />
         <WhyUs />
       </ScrollAnimation>
 
       <ScrollAnimation>
-        <SectionSeparator />
         <FullService />
       </ScrollAnimation>
 
       <ScrollAnimation>
-        <SectionSeparator />
         <Testimonials />
       </ScrollAnimation>
 
       <ScrollAnimation>
-        <SectionSeparator />
         <Plans />
       </ScrollAnimation>
 
       <ScrollAnimation>
-        <SectionSeparator />
         <Faq />
       </ScrollAnimation>
 

@@ -1,28 +1,23 @@
-'use client';
+'use client'
 
-import { Moon, Sun } from 'lucide-react';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { Moon, Sun } from 'lucide-react'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 
 export function ThemeSwitcher() {
-  const [mounted, setMounted] = useState(false);
-  const { setTheme, theme } = useTheme();
+  const [mounted, setMounted] = useState(false)
+  const { setTheme, resolvedTheme } = useTheme()
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
+  useEffect(() => setMounted(true), [])
 
   return (
     <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="p-2 rounded-full text-neutral-500 dark:text-neutral-400 bg-neutral-200 dark:bg-neutral-800 hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors"
+      type="button"
+      onClick={() => mounted && setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+      className="grid size-11 cursor-pointer place-items-center border-2 border-line bg-card transition-colors hover:border-primary hover:text-primary"
+      aria-label={mounted && resolvedTheme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'}
     >
-      <Sun size={18} className="hidden dark:block" />
-      <Moon size={18} className="block dark:hidden" />
+      {mounted && resolvedTheme === 'dark' ? <Sun size={19} aria-hidden="true" /> : <Moon size={19} aria-hidden="true" />}
     </button>
-  );
+  )
 }

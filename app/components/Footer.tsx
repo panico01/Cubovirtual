@@ -1,45 +1,45 @@
-import React from 'react';
-import { Rocket } from 'lucide-react';
+import { ArrowUp, ArrowUpRight, Box, Mail, MessageCircle } from 'lucide-react'
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer id="contato" className="bg-gray-100 dark:bg-neutral-900 border-t border-gray-200 dark:border-neutral-800">
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
+    <footer id="contato" className="bg-ink text-canvas">
+      <div className="mx-auto max-w-[1440px] px-5 py-16 sm:px-8 sm:py-20">
+        <div className="grid gap-12 border-b border-canvas/25 pb-16 lg:grid-cols-[1.3fr_.7fr] lg:items-end">
           <div>
-            <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
-                <Rocket className="text-blue-500" size={28} />
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Cubo Virtual</h3>
-            </div>
-            <p className="text-gray-600 dark:text-neutral-400">Transformando ideias em realidade digital.</p>
+            <p className="eyebrow text-canvas">Seu próximo projeto</p>
+            <h2 className="section-title mt-6 max-w-4xl text-balance">Vamos tirar essa ideia da tela mental?</h2>
+          </div>
+          <a
+            href="https://wa.me/5517991191582?text=Vim%20pelo%20site%20e%20quero%20conversar%20sobre%20um%20projeto."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-16 items-center justify-center gap-3 border-2 border-canvas bg-accent px-7 font-extrabold text-black shadow-[6px_6px_0_var(--color-background)] transition-transform hover:-translate-y-1 lg:justify-self-end"
+          >
+            Conversar agora <ArrowUpRight aria-hidden="true" />
+          </a>
+        </div>
+
+        <div className="grid gap-10 py-12 md:grid-cols-3">
+          <div>
+            <div className="flex items-center gap-3 text-lg font-extrabold tracking-[-.04em]"><Box aria-hidden="true" /> CUBO/VIRTUAL</div>
+            <p className="mt-4 max-w-sm text-sm text-canvas/65">Estratégia, design e tecnologia trabalhando juntos para mover negócios.</p>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Contato</h3>
-            <ul className="mt-4 space-y-2 text-gray-600 dark:text-neutral-400">
-              <li><a href="mailto:contato@cubovirtual.com.br" className="hover:text-blue-500">contato@cubovirtual.com.br</a></li>
-              <li>(17) 99119-1582</li>
-            </ul>
+            <p className="text-xs font-extrabold uppercase tracking-[.18em] text-canvas/55">Contato</p>
+            <a href="mailto:contato@cubovirtual.com.br" className="mt-4 flex min-h-11 items-center gap-3 font-bold hover:text-accent"><Mail size={18} aria-hidden="true" /> contato@cubovirtual.com.br</a>
+            <a href="https://wa.me/5517991191582" className="flex min-h-11 items-center gap-3 font-bold hover:text-accent"><MessageCircle size={18} aria-hidden="true" /> (17) 99119-1582</a>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Pronto para Começar?</h3>
-            <p className="mt-4 text-gray-600 dark:text-neutral-400">Vamos conversar sobre o seu projeto. Entre em contato conosco sem compromisso.</p>
-            <a 
-              href="https://wa.me/5517991191582?text=Vim%20pelo%20site%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center justify-center gap-2 bg-green-600 text-white font-semibold px-5 py-3 rounded-full hover:bg-green-700 transition-all"
-            >
-              <Rocket size={18} /> 
-              <span>Fale com um especialista</span>
-            </a>
+          <div className="md:text-right">
+            <p className="text-xs font-extrabold uppercase tracking-[.18em] text-canvas/55">Navegação</p>
+            <a href="#inicio" className="mt-4 inline-flex min-h-11 items-center gap-2 font-bold hover:text-accent">Voltar ao topo <ArrowUp size={18} aria-hidden="true" /></a>
           </div>
         </div>
-        <div className="mt-12 border-t border-gray-200 dark:border-neutral-700 pt-6 text-center text-gray-500 dark:text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Cubo Virtual. Todos os direitos reservados.</p>
+
+        <div className="flex flex-col gap-3 border-t border-canvas/25 pt-6 text-xs font-semibold uppercase tracking-wider text-canvas/55 sm:flex-row sm:justify-between">
+          <p>© {new Date().getFullYear()} Cubo Virtual</p>
+          <p>Feito para mover negócios</p>
         </div>
       </div>
     </footer>
-  );
-};
-
-export default Footer;
+  )
+}
