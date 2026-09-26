@@ -90,7 +90,7 @@ export default function Menu({ onPick, onQuickAdd, aside }: { onPick: (p: Produc
                 </button>
               ))}
             </div>
-            <p className="mt-3 text-center text-[11px] text-white/40">Arraste o burger para girar</p>
+            <p className="mt-3 text-center text-xs text-white/65">Arraste o burger para girar</p>
           </div>
         </div>
       </section>
@@ -118,7 +118,7 @@ export default function Menu({ onPick, onQuickAdd, aside }: { onPick: (p: Produc
                   <motion.button key={p.id} type="button" onClick={() => onPick(p)}
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
                     className="group relative flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-[#1C1C1C] to-[#121212] p-5 text-left transition-colors hover:border-[#FF5A1F]/60">
-                    {p.tag && <span className="absolute right-4 top-4 rounded-full bg-[#FF5A1F] px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-black">{p.tag}</span>}
+                    {p.tag && <span className="absolute right-4 top-4 rounded-full bg-[#FF5A1F] px-2.5 py-1 text-xs font-extrabold uppercase tracking-wider text-black">{p.tag}</span>}
                     <div className="relative mx-auto flex h-36 w-44 items-end justify-center">
                       <span className="absolute bottom-0 h-4 w-40 rounded-[50%] bg-black/60 blur-md" aria-hidden="true" />
                       <MiniBurger layers={p.layers!} className="relative w-40 transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-[-3deg]" />

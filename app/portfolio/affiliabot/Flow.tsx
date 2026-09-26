@@ -47,7 +47,7 @@ export default function Flow() {
         {[['3', 'lojas integradas'], ['24 h', 'no ar, sem pausa'], ['segundos', 'do canal ao grupo']].map(([n, l]) => (
           <div key={l}>
             <p className="text-2xl font-extrabold tracking-[-.04em] text-[#FBBF24]">{n}</p>
-            <p className="text-[11px] font-semibold text-white/55">{l}</p>
+            <p className="text-xs font-semibold text-white/55">{l}</p>
           </div>
         ))}
       </div>

@@ -85,7 +85,7 @@ function Sheet({ car, onClose, notify }: { car: Car; onClose: () => void; notify
 
         <div className="grid min-h-0 flex-1 overflow-y-auto md:grid-cols-[1.1fr_1fr]">
           <div className="relative overflow-hidden bg-gradient-to-b from-[#E4E5E0] to-[#F7F7F4] p-6">
-            <p className="text-xs font-bold text-black/50">{car.brand} · {car.year}</p>
+            <p className="text-xs font-bold text-black/65">{car.brand} · {car.year}</p>
             <h2 className={`${display} mt-1 text-2xl leading-tight sm:text-3xl`}>{car.model}</h2>
             <p className="text-sm text-black/60">{car.version}</p>
             <motion.div initial={{ x: -80, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ type: 'spring', stiffness: 90, damping: 16 }}>
@@ -99,7 +99,7 @@ function Sheet({ car, onClose, notify }: { car: Car; onClose: () => void; notify
             </div>
             <p className="mt-4 text-xs text-black/55">Cor: {car.colorName} · <a href={credits[car.id as keyof typeof credits]?.source} target="_blank" rel="noopener noreferrer" className="underline">foto: {credits[car.id as keyof typeof credits]?.author} ({credits[car.id as keyof typeof credits]?.license})</a></p>
             <ul className="mt-3 flex flex-wrap gap-1.5">
-              {car.badges.map((b) => <li key={b} className="flex items-center gap-1 rounded-full bg-[#0E0F12] px-2.5 py-1 text-[11px] font-bold text-white"><BadgeCheck size={12} aria-hidden="true" /> {b}</li>)}
+              {car.badges.map((b) => <li key={b} className="flex items-center gap-1 rounded-full bg-[#0E0F12] px-2.5 py-1 text-xs font-bold text-white"><BadgeCheck size={12} aria-hidden="true" /> {b}</li>)}
             </ul>
             <ul className="mt-4 grid grid-cols-2 gap-1.5 text-xs text-black/70">
               {car.items.map((it) => <li key={it} className="flex items-center gap-1.5"><Check size={13} className="text-[#D7263D]" aria-hidden="true" />{it}</li>)}
@@ -111,7 +111,7 @@ function Sheet({ car, onClose, notify }: { car: Car; onClose: () => void; notify
             <div className="mt-5 grid grid-cols-3 gap-1 rounded-2xl bg-black/5 p-1" role="tablist">
               {tabs.map(({ id, label, icon: Icon }) => (
                 <button key={id} type="button" role="tab" aria-selected={tab === id} onClick={() => { setTab(id); setError('') }}
-                  className={`relative flex min-h-11 cursor-pointer flex-col items-center justify-center gap-0.5 rounded-xl px-1 text-[11px] font-bold sm:flex-row sm:gap-1.5 sm:text-xs ${tab === id ? 'text-white' : 'text-black/60'}`}>
+                  className={`relative flex min-h-11 cursor-pointer flex-col items-center justify-center gap-0.5 rounded-xl px-1 text-xs font-bold sm:flex-row sm:gap-1.5 sm:text-xs ${tab === id ? 'text-white' : 'text-black/60'}`}>
                   {tab === id && <motion.span layoutId="v-tab" className="absolute inset-0 rounded-xl bg-[#0E0F12]" transition={{ type: 'spring', stiffness: 420, damping: 34 }} />}
                   <Icon size={15} className="relative" aria-hidden="true" /><span className="relative text-center leading-tight">{label}</span>
                 </button>
@@ -123,7 +123,7 @@ function Sheet({ car, onClose, notify }: { car: Car; onClose: () => void; notify
                 <div>
                   <label className="flex justify-between text-sm font-bold" htmlFor="entrada">Entrada <span className="tabular-nums">{brl(down)}</span></label>
                   <input id="entrada" type="range" min={0} max={car.price} step={1000} value={down} onChange={(e) => setDown(Number(e.target.value))} className="mt-3 w-full accent-[#D7263D]" />
-                  <p className="mt-1 text-xs text-black/50">{Math.round((down / car.price) * 100)}% do valor · financiado {brl(financed)}</p>
+                  <p className="mt-1 text-xs text-black/65">{Math.round((down / car.price) * 100)}% do valor · financiado {brl(financed)}</p>
                   <p className="mt-5 text-sm font-bold">Prazo</p>
                   <div className="mt-2 grid grid-cols-4 gap-2">
                     {TERMS.map((t) => (
@@ -136,7 +136,7 @@ function Sheet({ car, onClose, notify }: { car: Car; onClose: () => void; notify
                     <motion.p key={`${down}-${term}`} initial={{ opacity: 0.4, y: 4 }} animate={{ opacity: 1, y: 0 }} className={`${display} mt-1 text-3xl tabular-nums`}>
                       {financed ? `${term}x ${brl(pmt)}` : 'À vista'}
                     </motion.p>
-                    <p className="mt-2 text-[11px] text-white/50">Simulação ilustrativa com taxa de 1,49% a.m. Condição final sujeita à análise de crédito.</p>
+                    <p className="mt-2 text-xs text-white/65">Simulação ilustrativa com taxa de 1,49% a.m. Condição final sujeita à análise de crédito.</p>
                   </div>
                 </div>
               )}
@@ -161,7 +161,7 @@ function Sheet({ car, onClose, notify }: { car: Car; onClose: () => void; notify
                         <p className={`${display} mt-1 text-xl`}>{brl(tradeValue.min)} e {brl(tradeValue.max)}</p>
                         <p className="mt-3 text-sm">Usando como entrada, faltam <b>{brl(Math.max(0, car.price - tradeValue.min))}</b> para o {car.model}.</p>
                         <button type="button" onClick={() => { setDown(Math.min(car.price, tradeValue.min)); setTab('financiar') }} className="mt-3 text-sm font-bold text-[#D7263D] underline underline-offset-4">Simular parcela com essa entrada</button>
-                        <p className="mt-3 text-[11px] text-black/45">Estimativa ilustrativa. O valor final depende da vistoria presencial.</p>
+                        <p className="mt-3 text-xs text-black/65">Estimativa ilustrativa. O valor final depende da vistoria presencial.</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -193,7 +193,7 @@ function Sheet({ car, onClose, notify }: { car: Car; onClose: () => void; notify
                   <input className={field} placeholder="Seu nome" aria-label="Nome" autoComplete="name" value={contact.name} onChange={(e) => setContact({ ...contact, name: e.target.value })} />
                   <input className={field} placeholder="WhatsApp (11) 91234-5678" aria-label="WhatsApp" type="tel" inputMode="numeric" autoComplete="tel" value={contact.phone} onChange={(e) => setContact({ ...contact, phone: maskPhone(e.target.value) })} />
                   <button type="submit" className="min-h-12 cursor-pointer rounded-full bg-[#D7263D] font-bold text-white">Agendar test drive</button>
-                  <p className="text-center text-[11px] text-black/45">Demonstração: nenhum dado sai do seu navegador.</p>
+                  <p className="text-center text-xs text-black/65">Demonstração: nenhum dado sai do seu navegador.</p>
                 </form>
               ))}
               {error && <p role="alert" className="mt-3 rounded-xl bg-[#D7263D]/10 px-4 py-3 text-sm font-semibold text-[#9B1C2C]">{error}</p>}

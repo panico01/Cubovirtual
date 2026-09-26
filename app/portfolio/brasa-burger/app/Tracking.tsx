@@ -38,7 +38,7 @@ export default function Tracking({ order, onNew, notify }: { order: Order; onNew
   return (
     <div className="mx-auto grid max-w-5xl gap-6 px-5 py-8 lg:grid-cols-[1.2fr_.8fr]">
       <div>
-        <p className="text-sm font-bold text-white/50">Pedido #{order.id}</p>
+        <p className="text-sm font-bold text-white/65">Pedido #{order.id}</p>
         <motion.h1 key={step} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className={`${display} mt-1 text-5xl leading-none sm:text-6xl`}>
           {done ? 'Bom apetite!' : steps[step]}
         </motion.h1>
@@ -55,10 +55,10 @@ export default function Tracking({ order, onNew, notify }: { order: Order; onNew
             return (
               <li key={label} className="text-center">
                 <motion.span animate={{ scale: i === step && !done ? [1, 1.12, 1] : 1 }} transition={{ repeat: i === step && !done ? Infinity : 0, duration: 1.4 }}
-                  className={`mx-auto grid size-12 place-items-center rounded-full border-2 transition-colors ${reached ? 'border-[#FF5A1F] bg-[#FF5A1F] text-black shadow-[0_0_24px_-4px_#FF5A1F]' : 'border-white/15 text-white/35'}`}>
+                  className={`mx-auto grid size-12 place-items-center rounded-full border-2 transition-colors ${reached ? 'border-[#FF5A1F] bg-[#FF5A1F] text-black shadow-[0_0_24px_-4px_#FF5A1F]' : 'border-white/15 text-white/65'}`}>
                   {reached && i < step ? <Check size={20} strokeWidth={3} aria-hidden="true" /> : <Icon size={20} aria-hidden="true" />}
                 </motion.span>
-                <span className={`mt-2 block text-[11px] font-bold leading-tight sm:text-xs ${reached ? 'text-white' : 'text-white/40'}`}>{label}</span>
+                <span className={`mt-2 block text-xs font-bold leading-tight sm:text-xs ${reached ? 'text-white' : 'text-white/65'}`}>{label}</span>
               </li>
             )
           })}
@@ -90,7 +90,7 @@ export default function Tracking({ order, onNew, notify }: { order: Order; onNew
                 <Bike size={18} aria-hidden="true" />
               </span>
             )}
-            <p className="absolute bottom-3 left-4 rounded-full bg-black/60 px-3 py-1 text-[11px] font-semibold backdrop-blur">
+            <p className="absolute bottom-3 left-4 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold backdrop-blur">
               {ride === 0 ? 'Aguardando o entregador' : ride < 1 ? 'Entregador a caminho' : 'Chegou!'} · {order.address}
             </p>
           </div>
@@ -124,7 +124,7 @@ export default function Tracking({ order, onNew, notify }: { order: Order; onNew
             <li key={i.key} className="flex justify-between gap-3">
               <span>
                 <b>{i.qty}×</b> {productOf(i.productId).name}
-                {i.extras.length > 0 && <span className="block text-xs text-white/50">+ {i.extras.map((e) => extraOf(e).name).join(', ')}</span>}
+                {i.extras.length > 0 && <span className="block text-xs text-white/65">+ {i.extras.map((e) => extraOf(e).name).join(', ')}</span>}
               </span>
             </li>
           ))}
@@ -134,7 +134,7 @@ export default function Tracking({ order, onNew, notify }: { order: Order; onNew
           <div className="flex justify-between text-white/60"><dt>Entrega</dt><dd>{order.totals.fee ? brl(order.totals.fee) : 'Grátis'}</dd></div>
           {order.totals.discount > 0 && <div className="flex justify-between text-[#4ADE80]"><dt>Desconto</dt><dd>− {brl(order.totals.discount)}</dd></div>}
           <div className="mt-1 flex justify-between text-base font-extrabold"><dt>Total</dt><dd>{brl(order.totals.total)}</dd></div>
-          <p className="text-xs text-white/45">Pagamento: {order.payment === 'pix' ? 'Pix' : order.payment === 'cartao' ? 'cartão na entrega' : 'dinheiro'}</p>
+          <p className="text-xs text-white/65">Pagamento: {order.payment === 'pix' ? 'Pix' : order.payment === 'cartao' ? 'cartão na entrega' : 'dinheiro'}</p>
         </dl>
         <button type="button" onClick={onNew} className="mt-6 min-h-12 w-full cursor-pointer rounded-full bg-[#FF5A1F] font-extrabold text-black">
           {done ? 'Fazer novo pedido' : 'Voltar ao cardápio'}

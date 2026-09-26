@@ -46,7 +46,7 @@ export default function Clinic({ appts, setAppts, highlight, notify, onReset }: 
       <aside className="hidden flex-col justify-between bg-[#16291F] p-6 text-[#F4F1EA] lg:flex">
         <div>
           <p className={`${serif} text-3xl font-semibold leading-none`}>Vitalle</p>
-          <p className="mt-1 text-[10px] font-semibold uppercase tracking-[.4em] text-[#D9BC8C]">Painel da clínica</p>
+          <p className="mt-1 text-xs font-semibold uppercase tracking-[.4em] text-[#D9BC8C]">Painel da clínica</p>
           <nav className="mt-10 grid gap-1" aria-label="Painel">
             {nav.map(({ id, label, icon: Icon }) => (
               <button key={id} type="button" onClick={() => setTab(id)} aria-current={tab === id ? 'page' : undefined}
@@ -56,7 +56,7 @@ export default function Clinic({ appts, setAppts, highlight, notify, onReset }: 
               </button>
             ))}
           </nav>
-          <p className="mt-10 text-[10px] font-semibold uppercase tracking-[.25em] text-[#F4F1EA]/50">Equipe</p>
+          <p className="mt-10 text-xs font-semibold uppercase tracking-[.25em] text-[#F4F1EA]/50">Equipe</p>
           <ul className="mt-3 grid gap-3 text-sm">
             {pros.map((p) => (
               <li key={p.id} className="flex items-center gap-3"><span className="size-2.5 rounded-full" style={{ background: p.color }} />{p.name}</li>
@@ -101,7 +101,7 @@ export default function Clinic({ appts, setAppts, highlight, notify, onReset }: 
               </div>
             </div>
 
-            <p className="mt-4 flex items-center gap-2 text-xs text-[#1F3A2E]/60"><Hand size={14} aria-hidden="true" /> Arraste uma consulta para remarcar · toque para abrir a ficha</p>
+            <p className="mt-4 flex items-center gap-2 text-xs text-[#1F3A2E]/80"><Hand size={14} aria-hidden="true" /> Arraste uma consulta para remarcar · toque para abrir a ficha</p>
 
             <WeekGrid days={days} appts={weekAppts} all={appts} visible={visible} highlight={highlight} setAppts={setAppts} notify={notify} onOpen={setOpenId} />
           </>
@@ -137,7 +137,7 @@ function Kpis({ appts }: { appts: Appt[] }) {
     <div className="grid grid-cols-2 gap-3 xl:grid-cols-4">
       {items.map((item, i) => (
         <div key={item.label} className={`rounded-2xl p-4 sm:p-5 ${i === 2 ? 'bg-[#1F3A2E] text-[#F4F1EA]' : 'bg-white'}`}>
-          <p className={`text-xs font-semibold ${i === 2 ? 'text-[#F4F1EA]/65' : 'text-[#1F3A2E]/60'}`}>{item.label}</p>
+          <p className={`text-xs font-semibold ${i === 2 ? 'text-[#F4F1EA]/65' : 'text-[#1F3A2E]/80'}`}>{item.label}</p>
           <p className={`${serif} mt-2 text-3xl font-semibold lining-nums tabular-nums sm:text-4xl`}><CountUp value={item.value} format={item.format} /></p>
         </div>
       ))}
@@ -211,7 +211,7 @@ function WeekGrid({ days, appts, all, visible, highlight, setAppts, notify, onOp
             const d = fromKey(key)
             return (
               <div key={key} className="text-center">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-[#1F3A2E]/55">{d.toLocaleDateString('pt-BR', { weekday: 'short' }).replace('.', '')}</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#1F3A2E]/80">{d.toLocaleDateString('pt-BR', { weekday: 'short' }).replace('.', '')}</p>
                 <p className={`${serif} mx-auto mt-0.5 grid size-9 place-items-center rounded-full text-xl font-semibold lining-nums ${i === todayIdx ? 'bg-[#B08D57] text-white' : ''}`}>{d.getDate()}</p>
               </div>
             )
@@ -221,7 +221,7 @@ function WeekGrid({ days, appts, all, visible, highlight, setAppts, notify, onOp
         <div className="grid grid-cols-[3rem_1fr]">
           <div className="relative" style={{ height: rows * ROW }}>
             {Array.from({ length: rows / 2 }, (_, h) => (
-              <span key={h} className="absolute -translate-y-1/2 text-[10px] font-semibold tabular-nums text-[#1F3A2E]/45" style={{ top: h * 2 * ROW }}>{hhmm(OPEN + h * 60)}</span>
+              <span key={h} className="absolute -translate-y-1/2 text-xs font-semibold tabular-nums text-[#1F3A2E]/45" style={{ top: h * 2 * ROW }}>{hhmm(OPEN + h * 60)}</span>
             ))}
           </div>
 
@@ -265,7 +265,7 @@ function WeekGrid({ days, appts, all, visible, highlight, setAppts, notify, onOp
                   className="absolute cursor-grab touch-none select-none p-px text-left active:cursor-grabbing"
                 >
                   <span
-                    className={`relative flex h-full flex-col overflow-hidden rounded-md px-1.5 py-[3px] text-[11px] leading-tight transition-shadow ${g ? 'shadow-xl' : ''} ${g && ghostBad ? 'ring-2 ring-[#C0392B]' : ''}`}
+                    className={`relative flex h-full flex-col overflow-hidden rounded-md px-1.5 py-[3px] text-xs leading-tight transition-shadow ${g ? 'shadow-xl' : ''} ${g && ghostBad ? 'ring-2 ring-[#C0392B]' : ''}`}
                     style={pending ? { background: `${color}1f`, color, borderLeft: `3px solid ${color}` } : { background: color, color: '#fff' }}
                   >
                     {height > ROW ? (
@@ -311,13 +311,13 @@ function Patients({ appts, onOpen }: { appts: Appt[]; onOpen: (id: string) => vo
       <div className="flex flex-wrap items-end justify-between gap-4">
         <h2 className={`${serif} text-4xl font-semibold`}>Pacientes <span className="text-[#1F3A2E]/40">{list.length}</span></h2>
         <label className="flex min-h-11 w-full items-center gap-2 rounded-full bg-white px-4 shadow-sm sm:w-72">
-          <Search size={16} className="text-[#1F3A2E]/50" aria-hidden="true" />
+          <Search size={16} className="text-[#1F3A2E]/80" aria-hidden="true" />
           <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Buscar por nome ou telefone" aria-label="Buscar paciente" className="w-full bg-transparent text-sm outline-none" />
         </label>
       </div>
 
       <div className="mt-6 overflow-hidden rounded-2xl bg-white shadow-sm">
-        <div className="hidden grid-cols-[2fr_1.2fr_.8fr_1.2fr_1fr] gap-4 border-b border-[#1F3A2E]/10 px-5 py-3 text-[11px] font-semibold uppercase tracking-wider text-[#1F3A2E]/50 md:grid">
+        <div className="hidden grid-cols-[2fr_1.2fr_.8fr_1.2fr_1fr] gap-4 border-b border-[#1F3A2E]/10 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-[#1F3A2E]/80 md:grid">
           <span>Paciente</span><span>WhatsApp</span><span>Consultas</span><span>Próxima</span><span className="text-right">Total</span>
         </div>
         {shown.map((p, i) => (
@@ -328,13 +328,13 @@ function Patients({ appts, onOpen }: { appts: Appt[]; onOpen: (id: string) => vo
               <span className="grid size-9 shrink-0 place-items-center rounded-full bg-[#1F3A2E]/10 text-xs">{p.name.split(' ').map((w) => w[0]).slice(0, 2).join('')}</span>
               {p.name}
             </span>
-            <span className="text-right text-[#1F3A2E]/60 md:text-left">{p.phone}</span>
+            <span className="text-right text-[#1F3A2E]/80 md:text-left">{p.phone}</span>
             <span className="hidden md:block">{p.items.length}</span>
-            <span className="col-span-2 pl-12 text-xs text-[#1F3A2E]/60 md:col-span-1 md:pl-0 md:text-sm">{p.next ? `${dayLabel(p.next.date)} · ${hhmm(p.next.start)}` : 'Sem retorno marcado'}</span>
+            <span className="col-span-2 pl-12 text-xs text-[#1F3A2E]/80 md:col-span-1 md:pl-0 md:text-sm">{p.next ? `${dayLabel(p.next.date)} · ${hhmm(p.next.start)}` : 'Sem retorno marcado'}</span>
             <span className="hidden text-right font-semibold md:block">{brl(p.total)}</span>
           </motion.button>
         ))}
-        {!shown.length && <p className="p-8 text-center text-sm text-[#1F3A2E]/60">Nenhum paciente encontrado.</p>}
+        {!shown.length && <p className="p-8 text-center text-sm text-[#1F3A2E]/80">Nenhum paciente encontrado.</p>}
       </div>
     </div>
   )
@@ -372,7 +372,7 @@ function Drawer({ appt, appts, setAppts, notify, onClose }: {
             </div>
 
             <h3 className={`${serif} mt-6 text-4xl font-semibold leading-tight`}>{appt.patient}</h3>
-            <p className="mt-1 text-sm text-[#1F3A2E]/65">{appt.phone}</p>
+            <p className="mt-1 text-sm text-[#1F3A2E]/80">{appt.phone}</p>
 
             <dl className="mt-8 grid grid-cols-2 gap-4 rounded-2xl bg-white p-5 text-sm shadow-sm">
               {[
@@ -382,7 +382,7 @@ function Drawer({ appt, appts, setAppts, notify, onClose }: {
                 ['Horário', `${hhmm(appt.start)} – ${hhmm(appt.start + serviceOf(appt.serviceId).duration)}`],
                 ['Valor', brl(serviceOf(appt.serviceId).price)],
               ].map(([label, value]) => (
-                <div key={label}><dt className="text-xs text-[#1F3A2E]/55">{label}</dt><dd className="mt-0.5 font-semibold first-letter:uppercase">{value}</dd></div>
+                <div key={label}><dt className="text-xs text-[#1F3A2E]/80">{label}</dt><dd className="mt-0.5 font-semibold first-letter:uppercase">{value}</dd></div>
               ))}
             </dl>
 
@@ -403,13 +403,13 @@ function Drawer({ appt, appts, setAppts, notify, onClose }: {
               </button>
             </div>
 
-            <p className="mt-10 text-[11px] font-semibold uppercase tracking-[.2em] text-[#1F3A2E]/50">Histórico · {history.length} {history.length === 1 ? 'consulta' : 'consultas'}</p>
+            <p className="mt-10 text-xs font-semibold uppercase tracking-[.2em] text-[#1F3A2E]/80">Histórico · {history.length} {history.length === 1 ? 'consulta' : 'consultas'}</p>
             <ol className="mt-4 grid gap-3 border-l border-[#1F3A2E]/15 pl-5">
               {history.map((a) => (
                 <li key={a.id} className="relative text-sm">
                   <span className="absolute -left-[1.61rem] top-1.5 size-2.5 rounded-full border-2 border-[#FBFAF7]" style={{ background: a.id === appt.id ? '#B08D57' : proOf(a.proId).color }} />
                   <p className="font-semibold first-letter:uppercase">{dayLabel(a.date)} · {hhmm(a.start)} {a.id === appt.id && <span className="text-[#B08D57]">(esta)</span>}</p>
-                  <p className="text-[#1F3A2E]/60">{serviceOf(a.serviceId).name} com {proOf(a.proId).name}</p>
+                  <p className="text-[#1F3A2E]/80">{serviceOf(a.serviceId).name} com {proOf(a.proId).name}</p>
                 </li>
               ))}
             </ol>

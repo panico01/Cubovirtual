@@ -130,7 +130,7 @@ function AreaChart({ data }: { data: number[] }) {
           </span>
         </>
       )}
-      <div className={`mt-2 flex justify-between text-[11px] ${muted}`}><span>há 30 dias</span><span>hoje</span></div>
+      <div className={`mt-2 flex justify-between text-xs ${muted}`}><span>há 30 dias</span><span>hoje</span></div>
     </div>
   )
 }
@@ -187,13 +187,13 @@ function Ranking({ leads }: { leads: Lead[] }) {
       <ol className="mt-4 grid gap-4">
         {rows.map((r, i) => (
           <li key={r.id} className="flex items-center gap-3">
-            <span className="grid size-9 shrink-0 place-items-center rounded-full text-[11px] font-bold text-[#0A1418]" style={{ background: r.color }}>{initials(r.name)}</span>
+            <span className="grid size-9 shrink-0 place-items-center rounded-full text-xs font-bold text-[#0A1418]" style={{ background: r.color }}>{initials(r.name)}</span>
             <div className="min-w-0 flex-1">
               <div className="flex justify-between gap-2 text-sm"><span className="truncate font-medium">{r.name}</span><span className={`${display} font-bold tabular-nums`}>{compact(r.sold)}</span></div>
               <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-white/[.06]">
                 <motion.div className="h-full rounded-full" style={{ background: r.color }} initial={{ width: 0 }} animate={{ width: `${(r.sold / top) * 100}%` }} transition={{ delay: 0.3 + i * 0.1, duration: 0.8 }} />
               </div>
-              <p className={`mt-1 text-[11px] ${muted}`}>{r.active} leads em andamento</p>
+              <p className={`mt-1 text-xs ${muted}`}>{r.active} leads em andamento</p>
             </div>
           </li>
         ))}
@@ -218,14 +218,14 @@ function Feed({ leads, now, onOpen }: { leads: Lead[]; now: number; onOpen: (id:
             return (
               <motion.li key={item.key} layout initial={{ opacity: 0, x: -12, height: 0 }} animate={{ opacity: 1, x: 0, height: 'auto' }} exit={{ opacity: 0 }}>
                 <button type="button" onClick={() => onOpen(item.lead.id)} className="group flex w-full cursor-pointer items-start gap-3 rounded-xl p-2 text-left transition-colors hover:bg-white/[.04]">
-                  <span className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full text-[10px] font-bold" style={{ background: broker ? `${broker.color}26` : 'rgba(251,191,36,.15)', color: broker?.color ?? '#FBBF24' }}>
+                  <span className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full text-xs font-bold" style={{ background: broker ? `${broker.color}26` : 'rgba(251,191,36,.15)', color: broker?.color ?? '#FBBF24' }}>
                     {initials(item.lead.name)}
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-sm font-medium">{item.lead.name}</span>
                     <span className={`line-clamp-1 text-xs ${muted}`}>{item.text}</span>
                   </span>
-                  <span className={`shrink-0 text-[11px] ${muted}`}>{ago(item.at, now)}</span>
+                  <span className={`shrink-0 text-xs ${muted}`}>{ago(item.at, now)}</span>
                   <ArrowUpRight size={14} className="mt-1 shrink-0 text-[#2DD4BF] opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true" />
                 </button>
               </motion.li>

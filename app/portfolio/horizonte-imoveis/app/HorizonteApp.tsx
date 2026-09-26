@@ -93,10 +93,10 @@ export default function HorizonteApp() {
       </div>
 
       <header className="sticky top-0 z-30 flex h-12 items-center justify-between gap-3 border-b border-white/[.06] bg-[#050A0C]/80 px-3 backdrop-blur-md sm:px-5">
-        <Link href="/portfolio/horizonte-imoveis" className="flex min-h-11 items-center gap-2 text-xs font-semibold text-white/60 hover:text-white">
+        <Link href="/portfolio/horizonte-imoveis" aria-label="Voltar ao case" className="flex min-h-11 items-center gap-2 text-xs font-semibold text-white/60 hover:text-white">
           <ArrowLeft size={15} aria-hidden="true" /> <span className="hidden sm:inline">Voltar ao case</span>
         </Link>
-        <p className="text-[11px] font-semibold uppercase tracking-[.2em] text-white/45">Demo · CRM imobiliário</p>
+        <p className="text-xs font-semibold uppercase tracking-[.2em] text-white/65">Demo · CRM imobiliário</p>
         <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="hidden min-h-8 items-center gap-1.5 rounded-full bg-[#EA580C] px-3 text-xs font-bold text-black md:inline-flex">
           Quero um assim <ArrowUpRight size={14} aria-hidden="true" />
         </a>
@@ -117,11 +117,11 @@ export default function HorizonteApp() {
               ))}
             </nav>
 
-            <p className="mt-10 text-[10px] font-semibold uppercase tracking-[.25em] text-white/40">Corretores online</p>
+            <p className="mt-10 text-xs font-semibold uppercase tracking-[.25em] text-white/65">Corretores online</p>
             <ul className="mt-4 grid gap-3">
               {brokers.map((b) => (
                 <li key={b.id} className="flex items-center gap-3 text-sm text-white/80">
-                  <span className="relative grid size-8 place-items-center rounded-full text-[11px] font-bold text-[#0A1418]" style={{ background: b.color }}>
+                  <span className="relative grid size-8 place-items-center rounded-full text-xs font-bold text-[#0A1418]" style={{ background: b.color }}>
                     {initials(b.name)}
                     <span className="absolute -bottom-0.5 -right-0.5 size-2.5 rounded-full border-2 border-[#0A1418] bg-[#4ADE80]" />
                   </span>
@@ -130,7 +130,7 @@ export default function HorizonteApp() {
               ))}
             </ul>
           </div>
-          <button type="button" onClick={() => { setLeads(seed()); notify('Dados da demo restaurados') }} className="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-white/45 hover:text-white">
+          <button type="button" onClick={() => { setLeads(seed()); notify('Dados da demo restaurados') }} className="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-white/65 hover:text-white">
             <RotateCcw size={15} aria-hidden="true" /> Restaurar dados da demo
           </button>
         </aside>
@@ -139,7 +139,7 @@ export default function HorizonteApp() {
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="lg:hidden"><Logo /></div>
             <div className="hidden lg:block">
-              <p className="text-xs font-medium text-white/50 first-letter:uppercase">{new Date(now).toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' })}</p>
+              <p className="text-xs font-medium text-white/65 first-letter:uppercase">{new Date(now).toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' })}</p>
               <h1 className={`${display} mt-1 text-3xl font-bold tracking-tight`}>{view === 'painel' ? 'Visão geral' : 'Funil de vendas'}</h1>
             </div>
             <span className="flex items-center gap-2 rounded-full border border-[#2DD4BF]/25 bg-[#2DD4BF]/10 px-3 py-1.5 text-xs font-semibold text-[#2DD4BF]">
@@ -173,7 +173,7 @@ export default function HorizonteApp() {
         </main>
       </div>
 
-      <p className="relative border-t border-white/[.06] px-5 py-4 text-center text-xs text-white/40">
+      <p className="relative border-t border-white/[.06] px-5 py-4 text-center text-xs text-white/65">
         Projeto demonstrativo com marca e dados fictícios · desenvolvido por{' '}
         <Link href="/" className="font-semibold underline underline-offset-2 hover:text-white">Cubo Virtual</Link>
       </p>
@@ -205,7 +205,7 @@ function Logo() {
       </svg>
       <div className="leading-none">
         <p className={`${display} text-lg font-bold tracking-tight`}>horizonte</p>
-        <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[.3em] text-[#2DD4BF]">imóveis</p>
+        <p className="mt-0.5 text-xs font-semibold uppercase tracking-[.3em] text-[#2DD4BF]">imóveis</p>
       </div>
     </div>
   )

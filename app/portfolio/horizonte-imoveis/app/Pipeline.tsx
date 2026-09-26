@@ -88,7 +88,7 @@ export default function Pipeline({ leads, setLeads, now, onOpen, notify }: {
             return (
               <button key={b?.id ?? 'all'} type="button" onClick={() => setBroker(b?.id ?? null)} aria-pressed={active}
                 className={`flex min-h-9 cursor-pointer items-center gap-2 rounded-full border px-3 text-xs font-semibold transition-colors ${active ? 'border-[#2DD4BF]/40 bg-[#2DD4BF]/15 text-[#2DD4BF]' : 'border-white/10 text-white/60 hover:text-white'}`}>
-                {b && <span className="grid size-5 place-items-center rounded-full text-[9px] font-bold text-[#0A1418]" style={{ background: b.color }}>{initials(b.name)}</span>}
+                {b && <span className="grid size-5 place-items-center rounded-full text-xs font-bold text-[#0A1418]" style={{ background: b.color }}>{initials(b.name)}</span>}
                 {b ? b.name.split(' ')[0] : 'Toda a equipe'}
               </button>
             )
@@ -119,9 +119,9 @@ export default function Pipeline({ leads, setLeads, now, onOpen, notify }: {
                 <h2 className="flex items-center gap-2 text-sm font-semibold">
                   {s.id === 'fechado' && <BadgeCheck size={16} className="text-[#4ADE80]" aria-hidden="true" />}
                   {s.label}
-                  <span className="rounded-full bg-white/[.08] px-2 py-0.5 text-[11px] tabular-nums text-white/70">{items.length}</span>
+                  <span className="rounded-full bg-white/[.08] px-2 py-0.5 text-xs tabular-nums text-white/70">{items.length}</span>
                 </h2>
-                <span className={`text-[11px] tabular-nums ${muted}`}>{compact(items.reduce((a, l) => a + l.value, 0))}</span>
+                <span className={`text-xs tabular-nums ${muted}`}>{compact(items.reduce((a, l) => a + l.value, 0))}</span>
               </header>
               <div className="grid min-h-24 content-start gap-2">
                 <AnimatePresence initial={false}>
@@ -188,20 +188,20 @@ function Card({ lead, now, lifted, glowing, ...handlers }: {
       )}
       <div className="flex items-start justify-between gap-2">
         <p className="min-w-0 text-sm font-semibold leading-tight">{lead.name}</p>
-        <span className="shrink-0 rounded-md px-1.5 py-0.5 text-[10px] font-semibold" style={{ background: `${source.color}1f`, color: source.color }}>{lead.source}</span>
+        <span className="shrink-0 rounded-md px-1.5 py-0.5 text-xs font-semibold" style={{ background: `${source.color}1f`, color: source.color }}>{lead.source}</span>
       </div>
       <p className={`mt-1 truncate text-xs ${muted}`}>{property.title} · {property.hood}</p>
       <p className={`${display} mt-2 text-base font-bold tabular-nums`}>{brl(lead.value)}</p>
       <div className="mt-2.5 flex items-center justify-between border-t border-white/[.06] pt-2.5">
         {broker ? (
-          <span className="flex items-center gap-1.5 text-[11px] text-white/70">
-            <span className="grid size-5 place-items-center rounded-full text-[9px] font-bold text-[#0A1418]" style={{ background: broker.color }}>{initials(broker.name)}</span>
+          <span className="flex items-center gap-1.5 text-xs text-white/70">
+            <span className="grid size-5 place-items-center rounded-full text-xs font-bold text-[#0A1418]" style={{ background: broker.color }}>{initials(broker.name)}</span>
             {broker.name.split(' ')[0]}
           </span>
         ) : (
-          <span className="rounded-full bg-[#FBBF24]/15 px-2 py-0.5 text-[10px] font-semibold text-[#FBBF24]">Sem corretor</span>
+          <span className="rounded-full bg-[#FBBF24]/15 px-2 py-0.5 text-xs font-semibold text-[#FBBF24]">Sem corretor</span>
         )}
-        <span className={`text-[11px] ${muted}`}>{ago(lead.updatedAt, now)}</span>
+        <span className={`text-xs ${muted}`}>{ago(lead.updatedAt, now)}</span>
       </div>
     </div>
   )

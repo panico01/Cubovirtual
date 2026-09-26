@@ -37,10 +37,10 @@ export default function VerticeApp() {
   return (
     <div className="min-h-dvh bg-[#EDEEE9] font-[family-name:var(--v-sans)] text-[#0E0F12]">
       <header className="sticky top-0 z-30 flex h-12 items-center justify-between gap-3 bg-[#0E0F12] px-3 text-white sm:px-5">
-        <Link href="/portfolio/vertice-motors" className="flex min-h-11 items-center gap-2 text-xs font-semibold text-white/60 hover:text-white">
+        <Link href="/portfolio/vertice-motors" aria-label="Voltar ao case" className="flex min-h-11 items-center gap-2 text-xs font-semibold text-white/60 hover:text-white">
           <ArrowLeft size={15} aria-hidden="true" /> <span className="hidden sm:inline">Voltar ao case</span>
         </Link>
-        <p className="text-[11px] font-semibold uppercase tracking-[.2em] text-white/45">Demo · Showroom de seminovos</p>
+        <p className="text-xs font-semibold uppercase tracking-[.2em] text-white/65">Demo · Showroom de seminovos</p>
         <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="hidden min-h-8 items-center gap-1.5 rounded-full bg-[#EA580C] px-3 text-xs font-bold text-black md:inline-flex">
           Quero um assim <ArrowUpRight size={14} aria-hidden="true" />
         </a>
@@ -63,7 +63,7 @@ export default function VerticeApp() {
             </ul>
           </div>
           <motion.div initial={reduce ? false : { x: '-120%' }} animate={{ x: 0 }} transition={{ type: 'spring', stiffness: 60, damping: 14, delay: 0.2 }}>
-            <img src="/portfolio/vertice/compass.webp" alt="Jeep Compass vermelho" className="aspect-[16/10] w-full rounded-3xl object-cover shadow-[0_30px_60px_-10px_rgba(215,38,61,.45)]" />
+            <img src="/portfolio/vertice/compass.webp" alt="Jeep Compass vermelho" fetchPriority="high" className="aspect-[16/10] w-full rounded-3xl object-cover shadow-[0_30px_60px_-10px_rgba(215,38,61,.45)]" />
           </motion.div>
         </div>
       </section>
@@ -71,7 +71,7 @@ export default function VerticeApp() {
       <main className="mx-auto max-w-6xl px-5 py-8">
         <div className="grid gap-3 rounded-3xl bg-white/70 p-4 shadow-sm backdrop-blur md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <label className="relative">
-            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-black/40" aria-hidden="true" />
+            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-black/65" aria-hidden="true" />
             <input className={`${control} w-full pl-9`} placeholder="Buscar marca ou modelo" aria-label="Buscar marca ou modelo" value={filters.q} onChange={(e) => set({ q: e.target.value })} />
           </label>
           <select className={control} value={filters.minYear} onChange={(e) => set({ minYear: Number(e.target.value) })} aria-label="Ano mínimo">
@@ -115,24 +115,24 @@ export default function VerticeApp() {
                   <button type="button" onClick={() => setOpen(car)} className="block w-full cursor-pointer text-left">
                     <div className="relative p-3 pb-0">
                       <div className="absolute left-5 top-5 z-10 flex flex-wrap gap-1">
-                        {car.badges.slice(0, 2).map((b) => <span key={b} className="rounded-full bg-[#0E0F12] px-2 py-0.5 text-[10px] font-bold text-white">{b}</span>)}
+                        {car.badges.slice(0, 2).map((b) => <span key={b} className="rounded-full bg-[#0E0F12] px-2 py-0.5 text-xs font-bold text-white">{b}</span>)}
                       </div>
                       <div className="overflow-hidden rounded-2xl"><img src={`/portfolio/vertice/${car.id}.webp`} alt={`${car.brand} ${car.model}`} loading="lazy" className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-105" /></div>
                     </div>
                     <div className="p-5 pt-3">
-                      <p className="text-xs font-bold text-black/50">{car.brand} · {car.year} · {km(car.km)}</p>
+                      <p className="text-xs font-bold text-black/65">{car.brand} · {car.year} · {km(car.km)}</p>
                       <p className={`${display} mt-1 text-lg leading-tight`}>{car.model}</p>
                       <p className="truncate text-sm text-black/60">{car.version}</p>
                       <div className="mt-4 flex items-end justify-between">
                         <div>
                           <p className={`${display} text-xl text-[#D7263D]`}>{brl(car.price)}</p>
-                          <p className="text-[11px] text-black/50">ou 48x {brl(installment(car.price * 0.7, 48))}*</p>
+                          <p className="text-xs text-black/65">ou 48x {brl(installment(car.price * 0.7, 48))}*</p>
                         </div>
                         <span className="rounded-full bg-black/5 px-3 py-1.5 text-xs font-bold transition-colors group-hover:bg-[#0E0F12] group-hover:text-white">Ver detalhes</span>
                       </div>
                     </div>
                   </button>
-                  <label className="absolute right-4 top-4 flex cursor-pointer items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1.5 text-[11px] font-bold shadow-sm">
+                  <label className="absolute right-4 top-4 flex cursor-pointer items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1.5 text-xs font-bold shadow-sm">
                     <input type="checkbox" checked={inCompare} onChange={() => toggleCompare(car.id)} className="accent-[#D7263D]" /> Comparar
                   </label>
                 </motion.article>
@@ -141,8 +141,8 @@ export default function VerticeApp() {
           </AnimatePresence>
         </motion.div>
         {!list.length && <p className="mt-10 rounded-3xl border border-dashed border-black/20 p-10 text-center text-sm text-black/60">Nenhum carro com esses filtros. Tente ampliar a faixa de preço.</p>}
-        <p className="mt-6 text-[11px] text-black/45">*Parcela ilustrativa com 30% de entrada e taxa de 1,49% a.m.</p>
-        <details className="mt-6 text-[11px] text-black/50">
+        <p className="mt-6 text-xs text-black/65">*Parcela ilustrativa com 30% de entrada e taxa de 1,49% a.m.</p>
+        <details className="mt-6 text-xs text-black/65">
           <summary className="cursor-pointer font-semibold">Créditos das fotos (Wikimedia Commons)</summary>
           <ul className="mt-2 grid gap-1 sm:grid-cols-2">
             {Object.entries(credits).map(([id, c]) => (
@@ -152,7 +152,7 @@ export default function VerticeApp() {
         </details>
       </main>
 
-      <p className="border-t border-black/10 px-5 py-4 pb-24 text-center text-xs text-black/45">
+      <p className="border-t border-black/10 px-5 py-4 pb-24 text-center text-xs text-black/65">
         Projeto demonstrativo com marca e dados fictícios · desenvolvido por{' '}
         <Link href="/" className="font-semibold underline underline-offset-2 hover:text-black">Cubo Virtual</Link>
       </p>
@@ -222,7 +222,7 @@ function Compare({ ids, onClose, onOpen }: { ids: string[]; onClose: () => void;
             <tbody>
               {rows.map((r) => (
                 <tr key={r.label}>
-                  <th scope="row" className="py-2.5 text-left text-xs font-bold text-black/50">{r.label}</th>
+                  <th scope="row" className="py-2.5 text-left text-xs font-bold text-black/65">{r.label}</th>
                   {list.map((c) => (
                     <td key={c.id} className={`rounded-xl px-3 py-2.5 text-center font-semibold tabular-nums ${r.best?.(c) ? 'bg-[#D7263D]/10 text-[#9B1C2C]' : 'bg-white'}`}>{r.value(c)}</td>
                   ))}
@@ -231,7 +231,7 @@ function Compare({ ids, onClose, onOpen }: { ids: string[]; onClose: () => void;
             </tbody>
           </table>
         </div>
-        <p className="mt-3 text-[11px] text-black/45">Em destaque, o melhor de cada linha. *Parcela ilustrativa com 30% de entrada.</p>
+        <p className="mt-3 text-xs text-black/65">Em destaque, o melhor de cada linha. *Parcela ilustrativa com 30% de entrada.</p>
       </motion.div>
     </>
   )

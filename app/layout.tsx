@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-17544538660"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script id="google-analytics-config" strategy="afterInteractive">
           {`

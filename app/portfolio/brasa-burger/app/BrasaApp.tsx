@@ -63,10 +63,10 @@ export default function BrasaApp() {
   return (
     <div className="min-h-dvh bg-[#0D0D0D] font-[family-name:var(--b-sans)] text-[#FFF4E8]">
       <header className="sticky top-0 z-30 flex h-12 items-center justify-between gap-3 border-b border-white/10 bg-black/85 px-3 backdrop-blur-md sm:px-5">
-        <Link href="/portfolio/brasa-burger" className="flex min-h-11 items-center gap-2 text-xs font-semibold text-white/60 hover:text-white">
+        <Link href="/portfolio/brasa-burger" aria-label="Voltar ao case" className="flex min-h-11 items-center gap-2 text-xs font-semibold text-white/60 hover:text-white">
           <ArrowLeft size={15} aria-hidden="true" /> <span className="hidden sm:inline">Voltar ao case</span>
         </Link>
-        <p className="text-[11px] font-semibold uppercase tracking-[.2em] text-white/45">Demo · Cardápio digital</p>
+        <p className="text-xs font-semibold uppercase tracking-[.2em] text-white/65">Demo · Cardápio digital</p>
         <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="hidden min-h-8 items-center gap-1.5 rounded-full bg-[#EA580C] px-3 text-xs font-bold text-black md:inline-flex">
           Quero um assim <ArrowUpRight size={14} aria-hidden="true" />
         </a>
@@ -87,7 +87,7 @@ export default function BrasaApp() {
         />
       )}
 
-      <p className="border-t border-white/10 px-5 py-4 pb-24 text-center text-xs text-white/40 lg:pb-4">
+      <p className="border-t border-white/10 px-5 py-4 pb-24 text-center text-xs text-white/65 lg:pb-4">
         Projeto demonstrativo com marca e dados fictícios · desenvolvido por{' '}
         <Link href="/" className="font-semibold underline underline-offset-2 hover:text-white">Cubo Virtual</Link>
       </p>

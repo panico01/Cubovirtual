@@ -76,10 +76,10 @@ export default function AffiliaDemo() {
   return (
     <div className="min-h-dvh bg-[#07090E] font-[family-name:var(--a-sans)] text-[#E9EDF5]">
       <header className="sticky top-0 z-30 flex h-12 items-center justify-between gap-3 border-b border-[#1C2330] bg-[#07090E]/90 px-3 backdrop-blur sm:px-5">
-        <Link href="/portfolio/affiliabot" className="flex min-h-11 items-center gap-2 text-xs font-semibold text-white/60 hover:text-white">
+        <Link href="/portfolio/affiliabot" aria-label="Voltar ao case" className="flex min-h-11 items-center gap-2 text-xs font-semibold text-white/60 hover:text-white">
           <ArrowLeft size={15} aria-hidden="true" /> <span className="hidden sm:inline">Voltar ao case</span>
         </Link>
-        <p className="text-[11px] font-semibold uppercase tracking-[.2em] text-white/45">Demo · Simulação do AffiliaBOT</p>
+        <p className="text-xs font-semibold uppercase tracking-[.2em] text-white/65">Demo · Simulação do AffiliaBOT</p>
         <a href="https://affiliabot.com.br" target="_blank" rel="noopener noreferrer" className="hidden min-h-8 items-center gap-1.5 rounded-full bg-[#2563EB] px-3 text-xs font-bold text-white md:inline-flex">
           Conhecer o produto <ArrowUpRight size={14} aria-hidden="true" />
         </a>
@@ -144,7 +144,7 @@ export default function AffiliaDemo() {
               <AnimatePresence initial={false}>
                 {feed.map((e) => (
                   <motion.li key={e.key} layout initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0 }} className="rounded-[10px] border border-[#1C2330] bg-[#131924] p-3">
-                    <div className="flex items-center justify-between gap-2 text-[11px]">
+                    <div className="flex items-center justify-between gap-2 text-xs">
                       <span className="font-semibold text-[#38BDF8]">{e.offer.channel}</span>
                       <span className={`rounded-full px-2 py-0.5 font-semibold ${e.status === 'enviada' ? 'bg-[#22C55E]/15 text-[#4ADE80]' : e.status === 'descartada' ? 'bg-[#EF4444]/15 text-[#F87171]' : 'bg-[#FBBF24]/15 text-[#FBBF24]'}`}>{e.status}</span>
                     </div>
@@ -176,7 +176,7 @@ export default function AffiliaDemo() {
                   })}
                 </ol>
                 {current.result.ok && step >= 3 && (
-                  <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="mt-4 grid gap-1.5 rounded-[10px] bg-[#090C12] p-3 font-mono text-[11px] leading-relaxed">
+                  <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="mt-4 grid gap-1.5 rounded-[10px] bg-[#090C12] p-3 font-mono text-xs leading-relaxed">
                     <p className="break-all text-[#7A8599] line-through">{current.result.original}</p>
                     <p className="break-all text-[#E9EDF5]">
                       {current.result.converted.split(TAG)[0]}<mark className="rounded bg-[#2563EB]/30 px-0.5 text-[#93C5FD]">{TAG}</mark>{current.result.converted.split(TAG)[1]}
@@ -195,7 +195,7 @@ export default function AffiliaDemo() {
           <section className="overflow-hidden rounded-[14px] border border-[#1C2330] bg-[#0B141A]" aria-label="Grupo do WhatsApp">
             <div className="flex items-center gap-3 bg-[#1F2C34] px-4 py-3">
               <span className="grid size-9 place-items-center rounded-full bg-[#25D366]/20 text-[#25D366]"><Users size={17} aria-hidden="true" /></span>
-              <div><p className="text-sm font-semibold">{GROUPS[0]}</p><p className="text-[11px] text-[#8696A0]">+ {GROUPS.length - 1} grupos recebendo junto</p></div>
+              <div><p className="text-sm font-semibold">{GROUPS[0]}</p><p className="text-xs text-[#8696A0]">+ {GROUPS.length - 1} grupos recebendo junto</p></div>
             </div>
             <div className="flex min-h-[26rem] flex-col justify-end gap-2 bg-[#0B141A] p-3">
               <AnimatePresence initial={false}>
@@ -206,7 +206,7 @@ export default function AffiliaDemo() {
                     ) : (
                       <div className="flex gap-2 rounded-md bg-[#111B21] p-2">
                         <span className="grid size-14 shrink-0 place-items-center rounded bg-[#2A3942] text-3xl" aria-hidden="true">{m.offer.image}</span>
-                        <span className="min-w-0"><span className="block truncate text-xs font-semibold">{m.offer.title}</span><span className="block truncate text-[11px] text-[#8696A0]">{m.converted.replace(/^https?:\/\//, '').split('/')[0]}</span></span>
+                        <span className="min-w-0"><span className="block truncate text-xs font-semibold">{m.offer.title}</span><span className="block truncate text-xs text-[#8696A0]">{m.converted.replace(/^https?:\/\//, '').split('/')[0]}</span></span>
                       </div>
                     )}
                     <p className="whitespace-pre-line break-words px-1.5 pb-1 pt-1.5">

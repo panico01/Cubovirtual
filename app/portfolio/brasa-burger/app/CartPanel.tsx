@@ -20,7 +20,7 @@ const payments: { id: Payment; label: string; icon: typeof QrCode }[] = [
   { id: 'dinheiro', label: 'Dinheiro', icon: Banknote },
 ]
 
-const input = 'min-h-12 w-full rounded-xl border border-white/10 bg-white/[.04] px-4 text-sm outline-none placeholder:text-white/30 focus:border-[#FF5A1F]/60'
+const input = 'min-h-12 w-full rounded-xl border border-white/10 bg-white/[.04] px-4 text-sm outline-none placeholder:text-white/65 focus:border-[#FF5A1F]/60'
 
 export default function CartPanel({ cart, setCart, open, onClose, onOrder }: {
   cart: CartItem[]
@@ -86,7 +86,7 @@ export default function CartPanel({ cart, setCart, open, onClose, onOrder }: {
           <div className="grid place-items-center gap-2 px-6 py-12 text-center">
             <ShoppingBag size={36} className="text-white/20" aria-hidden="true" />
             <p className="font-bold">Sua sacola está vazia</p>
-            <p className="text-sm text-white/50">Escolha um burger e monte do seu jeito.</p>
+            <p className="text-sm text-white/65">Escolha um burger e monte do seu jeito.</p>
           </div>
         ) : step === 'sacola' ? (
           <>
@@ -102,7 +102,7 @@ export default function CartPanel({ cart, setCart, open, onClose, onOrder }: {
                       <div className="min-w-0 flex-1">
                         <p className="font-bold leading-tight">{p.name}</p>
                         {item.extras.length > 0 && <p className="text-xs text-white/55">+ {item.extras.map((e) => extraOf(e).name).join(', ')}</p>}
-                        {item.note && <p className="text-xs italic text-white/45">“{item.note}”</p>}
+                        {item.note && <p className="text-xs italic text-white/65">“{item.note}”</p>}
                         <div className="mt-2 flex items-center justify-between">
                           <div className="flex items-center rounded-full border border-white/15">
                             <button type="button" onClick={() => changeQty(item.key, -1)} className="grid size-9 cursor-pointer place-items-center" aria-label={`Remover um ${p.name}`}><Minus size={14} /></button>
@@ -152,14 +152,14 @@ export default function CartPanel({ cart, setCart, open, onClose, onOrder }: {
                 {payments.map(({ id, label, icon: Icon }) => (
                   <button key={id} type="button" role="radio" aria-checked={payment === id} onClick={() => setPayment(id)}
                     className={`flex min-h-11 cursor-pointer items-center gap-3 rounded-xl border px-3 text-sm font-semibold transition-colors ${payment === id ? 'border-[#FF5A1F] bg-[#FF5A1F]/10' : 'border-white/10'}`}>
-                    <Icon size={17} className={payment === id ? 'text-[#FF5A1F]' : 'text-white/50'} aria-hidden="true" />{label}
+                    <Icon size={17} className={payment === id ? 'text-[#FF5A1F]' : 'text-white/65'} aria-hidden="true" />{label}
                   </button>
                 ))}
               </div>
 
               <div className="flex gap-2">
                 <label className="relative flex-1">
-                  <TicketPercent size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40" aria-hidden="true" />
+                  <TicketPercent size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/65" aria-hidden="true" />
                   <input className={`${input} pl-9 uppercase`} value={couponInput} onChange={(e) => setCouponInput(e.target.value)} placeholder="Cupom (tente BRASA10)" aria-label="Cupom de desconto" />
                 </label>
                 <button type="button" onClick={applyCoupon} className="min-h-12 cursor-pointer rounded-xl bg-white/[.08] px-4 text-sm font-bold hover:bg-white/[.14]">Aplicar</button>
@@ -182,7 +182,7 @@ export default function CartPanel({ cart, setCart, open, onClose, onOrder }: {
               <button type="submit" className="flex min-h-12 w-full cursor-pointer items-center justify-between rounded-full bg-[#FF5A1F] px-5 font-extrabold text-black shadow-[0_10px_40px_-10px_#FF5A1F]">
                 <span>Fazer pedido</span><span className="tabular-nums">{brl(t.total)}</span>
               </button>
-              <p className="mt-2 text-center text-[11px] text-white/40">Demonstração: nenhum pagamento é processado.</p>
+              <p className="mt-2 text-center text-xs text-white/65">Demonstração: nenhum pagamento é processado.</p>
             </div>
           </form>
         )}

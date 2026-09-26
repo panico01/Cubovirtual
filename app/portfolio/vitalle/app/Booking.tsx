@@ -83,7 +83,7 @@ export default function Booking({ appts, onBook, onSeeClinic }: {
                     <ArrowLeft size={16} aria-hidden="true" /> Voltar
                   </button>
                 ) : <span />}
-                <span className="text-xs font-semibold uppercase tracking-[.2em] text-[#1F3A2E]/60">Etapa {step + 1} de 4</span>
+                <span className="text-xs font-semibold uppercase tracking-[.2em] text-[#1F3A2E]/80">Etapa {step + 1} de 4</span>
               </div>
               <div className="mt-3 h-1 overflow-hidden rounded-full bg-[#1F3A2E]/10">
                 <motion.div className="h-full rounded-full bg-[#B08D57]" initial={{ width: 0 }} animate={{ width: `${((step + 1) / 4) * 100}%` }} transition={{ type: 'spring', stiffness: 120, damping: 20 }} />
@@ -107,7 +107,7 @@ export default function Booking({ appts, onBook, onSeeClinic }: {
                         <button key={s.id} type="button" onClick={() => go({ serviceId: s.id, start: undefined }, 1)}
                           className={`group cursor-pointer rounded-2xl border bg-white/70 p-5 text-left transition-all hover:-translate-y-0.5 hover:border-[#B08D57] hover:shadow-[0_12px_30px_-12px_rgba(31,58,46,.35)] ${draft.serviceId === s.id ? 'border-[#B08D57]' : 'border-[#1F3A2E]/10'}`}>
                           <p className={`${serif} text-2xl font-semibold`}>{s.name}</p>
-                          <p className="mt-1 text-sm text-[#1F3A2E]/65">{s.desc}</p>
+                          <p className="mt-1 text-sm text-[#1F3A2E]/80">{s.desc}</p>
                           <p className="mt-4 flex items-center justify-between text-sm font-semibold">
                             <span className="flex items-center gap-1.5 text-[#1F3A2E]/70"><Clock size={14} aria-hidden="true" /> {s.duration} min</span>
                             <span className="text-[#8C6D3F]">{brl(s.price)}</span>
@@ -127,7 +127,7 @@ export default function Booking({ appts, onBook, onSeeClinic }: {
                           </span>
                           <span className="min-w-0 flex-1">
                             <span className="block font-semibold">{p?.name ?? 'Sem preferência'}</span>
-                            <span className="block text-sm text-[#1F3A2E]/65">{p?.role ?? 'Mostramos o primeiro horário livre da equipe'}</span>
+                            <span className="block text-sm text-[#1F3A2E]/80">{p?.role ?? 'Mostramos o primeiro horário livre da equipe'}</span>
                           </span>
                           <ArrowRight size={18} className="shrink-0 text-[#B08D57]" aria-hidden="true" />
                         </button>
@@ -144,7 +144,7 @@ export default function Booking({ appts, onBook, onSeeClinic }: {
                           return (
                             <button key={key} type="button" onClick={() => setDraft((x) => ({ ...x, date: key }))} aria-pressed={active}
                               className={`flex min-w-[4.25rem] shrink-0 cursor-pointer snap-start flex-col items-center rounded-2xl border px-3 py-3 transition-colors ${active ? 'border-[#1F3A2E] bg-[#1F3A2E] text-[#F4F1EA]' : 'border-[#1F3A2E]/10 bg-white/70 hover:border-[#B08D57]'}`}>
-                              <span className="text-[11px] font-semibold uppercase tracking-wider opacity-70">{d.toLocaleDateString('pt-BR', { weekday: 'short' }).replace('.', '')}</span>
+                              <span className="text-xs font-semibold uppercase tracking-wider opacity-70">{d.toLocaleDateString('pt-BR', { weekday: 'short' }).replace('.', '')}</span>
                               <span className={`${serif} text-2xl font-semibold lining-nums`}>{d.getDate()}</span>
                             </button>
                           )
@@ -164,7 +164,7 @@ export default function Booking({ appts, onBook, onSeeClinic }: {
                           ))}
                         </div>
                       ) : (
-                        <p className="mt-3 rounded-2xl border border-dashed border-[#1F3A2E]/20 p-6 text-center text-sm text-[#1F3A2E]/65">Sem horários livres neste dia. Tente outra data.</p>
+                        <p className="mt-3 rounded-2xl border border-dashed border-[#1F3A2E]/20 p-6 text-center text-sm text-[#1F3A2E]/80">Sem horários livres neste dia. Tente outra data.</p>
                       )}
                     </div>
                   )}
@@ -192,7 +192,7 @@ export default function Booking({ appts, onBook, onSeeClinic }: {
                       <button type="submit" className="min-h-14 cursor-pointer rounded-full bg-[#B08D57] font-semibold text-white shadow-[0_14px_30px_-12px_rgba(176,141,87,.8)] transition-transform hover:-translate-y-0.5">
                         Confirmar agendamento
                       </button>
-                      <p className="text-center text-xs text-[#1F3A2E]/55">Demonstração: nenhuma mensagem é enviada e seus dados ficam apenas neste navegador.</p>
+                      <p className="text-center text-xs text-[#1F3A2E]/80">Demonstração: nenhuma mensagem é enviada e seus dados ficam apenas neste navegador.</p>
                     </form>
                   )}
                 </motion.div>
@@ -218,7 +218,7 @@ function Hero() {
       <div className="relative flex h-full flex-col justify-between gap-8 sm:gap-12">
         <div>
           <p className={`${serif} text-4xl font-semibold leading-none`}>Vitalle</p>
-          <p className="mt-1 text-[11px] font-semibold uppercase tracking-[.4em] text-[#D9BC8C]">Clínica</p>
+          <p className="mt-1 text-xs font-semibold uppercase tracking-[.4em] text-[#D9BC8C]">Clínica</p>
         </div>
 
         <div>
@@ -272,7 +272,7 @@ function Success({ appt, onSeeClinic, onRestart }: { appt: Appt; onSeeClinic: ()
         <div className="overflow-hidden rounded-[1.7rem] bg-[#ECE5DD]">
           <div className="flex items-center gap-3 bg-[#075E54] px-4 pb-3 pt-5 text-white">
             <span className={`${serif} grid size-9 place-items-center rounded-full bg-[#F4F1EA] text-lg font-semibold text-[#1F3A2E]`}>V</span>
-            <span><span className="block text-sm font-semibold">Vitalle Clínica</span><span className="block text-[11px] opacity-75">online</span></span>
+            <span><span className="block text-sm font-semibold">Vitalle Clínica</span><span className="block text-xs opacity-75">online</span></span>
           </div>
           <div className="flex min-h-[21rem] flex-col gap-2 p-3">
             {messages.map((m, i) => (

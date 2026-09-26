@@ -48,14 +48,14 @@ function Sheet({ product, onClose, onAdd }: { product: Product; onClose: () => v
         <div className="grid min-h-0 flex-1 overflow-y-auto md:grid-cols-2">
           <div className="relative bg-[radial-gradient(circle_at_50%_60%,rgba(255,90,31,.28),transparent_65%)]">
             <Burger3D layers={layers} className="mx-auto aspect-square w-full max-w-[22rem] md:max-w-none" />
-            <p className="absolute inset-x-0 bottom-3 text-center text-[11px] text-white/40">Marque os adicionais e veja o burger mudar</p>
+            <p className="absolute inset-x-0 bottom-3 text-center text-xs text-white/65">Marque os adicionais e veja o burger mudar</p>
           </div>
 
           <div className="p-5 sm:p-7">
             <p className={`${display} text-4xl leading-none`}>{product.name}</p>
             <p className="mt-2 text-sm text-white/60">{product.desc}</p>
 
-            <p className="mt-6 text-xs font-extrabold uppercase tracking-[.18em] text-white/45">Adicionais</p>
+            <p className="mt-6 text-xs font-extrabold uppercase tracking-[.18em] text-white/65">Adicionais</p>
             <div className="mt-3 grid gap-2">
               {extras.map((e) => {
                 const on = chosen.includes(e.id)
@@ -72,9 +72,9 @@ function Sheet({ product, onClose, onAdd }: { product: Product; onClose: () => v
               })}
             </div>
 
-            <label className="mt-6 block text-xs font-extrabold uppercase tracking-[.18em] text-white/45" htmlFor="obs">Observações</label>
+            <label className="mt-6 block text-xs font-extrabold uppercase tracking-[.18em] text-white/65" htmlFor="obs">Observações</label>
             <textarea id="obs" value={note} onChange={(e) => setNote(e.target.value)} rows={2} maxLength={140} placeholder="Ex.: sem tomate, ponto da carne mais passado…"
-              className="mt-3 w-full resize-none rounded-xl border border-white/10 bg-white/[.04] px-3 py-2.5 text-sm outline-none placeholder:text-white/30 focus:border-[#FF5A1F]/60" />
+              className="mt-3 w-full resize-none rounded-xl border border-white/10 bg-white/[.04] px-3 py-2.5 text-sm outline-none placeholder:text-white/65 focus:border-[#FF5A1F]/60" />
           </div>
         </div>
 
