@@ -81,7 +81,8 @@ export default function Menu({ onPick, onQuickAdd, aside }: { onPick: (p: Produc
           </div>
 
           <div>
-            <Burger3D layers={hero.layers!} className="mx-auto aspect-square w-full max-w-[26rem]" />
+            {/* espaço reservado antes do 3D carregar: evita a página pular (CLS) */}
+            <div className="mx-auto aspect-square w-full max-w-[26rem]"><Burger3D layers={hero.layers!} className="size-full" /></div>
             <div className="-mt-4 flex flex-wrap justify-center gap-2" role="group" aria-label="Ver outro burger em 3D">
               {burgers.map((b) => (
                 <button key={b.id} type="button" onClick={() => setHero(b)} aria-pressed={hero.id === b.id}

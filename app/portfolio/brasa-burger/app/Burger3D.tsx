@@ -32,7 +32,7 @@ export default function Burger3D({ layers, className = '' }: { layers: Layer[]; 
         setFailed(true)
         return
       }
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
       renderer.outputColorSpace = THREE.SRGBColorSpace
       renderer.toneMapping = THREE.ACESFilmicToneMapping
       el.appendChild(renderer.domElement)
@@ -197,14 +197,30 @@ export default function Burger3D({ layers, className = '' }: { layers: Layer[]; 
         renderer.domElement.style.height = '100%'
         camera.aspect = width / h
         camera.updateProjectionMatrix()
+        renderer.render(scene, camera) // setSize limpa o canvas; redesenha mesmo com o loop parado
       }
       const ro = new ResizeObserver(resize)
+      stack.position.y = -height / 2
       ro.observe(el)
       resize()
 
+      // O loop só roda depois da primeira interação e enquanto o burger está na tela:
+      // antes disso fica um quadro parado (girar sem parar trava celular fraco e derruba o TBT)
       let raf = 0
+      let started = false
+      let visible = true
       const clock = new THREE.Clock()
+      const play = () => { if (!raf && started && visible && !document.hidden) { clock.getDelta(); raf = requestAnimationFrame(tick) } }
+      const start = () => { started = true; play() }
+      const wake = ['pointerdown', 'pointermove', 'touchstart', 'scroll', 'keydown'] as const
+      wake.forEach((ev) => window.addEventListener(ev, start, { once: true, passive: true }))
+      const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; play() })
+      io.observe(el)
+      const onVis = () => play()
+      document.addEventListener('visibilitychange', onVis)
       const tick = () => {
+        raf = 0
+        if (!visible || document.hidden) return
         raf = requestAnimationFrame(tick)
         const dt = Math.min(clock.getDelta(), 0.05)
         const t = clock.elapsedTime
@@ -218,10 +234,12 @@ export default function Burger3D({ layers, className = '' }: { layers: Layer[]; 
         }
         renderer.render(scene, camera)
       }
-      tick()
 
       cleanup = () => {
         cancelAnimationFrame(raf)
+        wake.forEach((ev) => window.removeEventListener(ev, start))
+        io.disconnect()
+        document.removeEventListener('visibilitychange', onVis)
         ro.disconnect()
         renderer.domElement.removeEventListener('pointerdown', down)
         window.removeEventListener('pointermove', move)
