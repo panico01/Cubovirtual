@@ -40,6 +40,18 @@ function Screen({ project }: { project: Project }) {
           ))}
         </div>
       )
+    case 'vertice-motors':
+      return (
+        <div className="grid grid-cols-3 gap-2">
+          {[0, 1, 2].map((i) => (
+            <div key={i} className="space-y-1.5 rounded-md p-1.5" style={{ background: `${fg}0d` }}>
+              <span className="block aspect-[16/9] rounded" style={i === 0 ? hot : dim} />
+              <span className="block h-1.5 w-3/4 rounded-full" style={dim} />
+              <span className="block h-1.5 w-1/2 rounded-full" style={i === 0 ? hot : dim} />
+            </div>
+          ))}
+        </div>
+      )
     default:
       return (
         <div className="space-y-2">

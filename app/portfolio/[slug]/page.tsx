@@ -13,12 +13,12 @@ type Props = { params: Promise<{ slug: string }> }
 export const dynamicParams = false
 
 export function generateStaticParams() {
-  return projects.filter((p) => !p.soon).map((p) => ({ slug: p.slug }))
+  return projects.filter((p) => !p.soon && !p.custom).map((p) => ({ slug: p.slug }))
 }
 
 const findProject = async (params: Props['params']) => {
   const { slug } = await params
-  return projects.find((p) => p.slug === slug && !p.soon)
+  return projects.find((p) => p.slug === slug && !p.soon && !p.custom)
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

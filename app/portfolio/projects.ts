@@ -1,8 +1,9 @@
-import { Anton, Cormorant_Garamond, Space_Grotesk } from 'next/font/google'
+import { Anton, Cormorant_Garamond, Michroma, Space_Grotesk } from 'next/font/google'
 
 const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: '600', display: 'swap' })
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: '700', display: 'swap' })
 const anton = Anton({ subsets: ['latin'], weight: '400', display: 'swap' })
+const michroma = Michroma({ subsets: ['latin'], weight: '400', display: 'swap' })
 
 export type Project = {
   slug: string
@@ -20,6 +21,8 @@ export type Project = {
   soon?: boolean
   // Demo interativa em /portfolio/<slug>/app já publicada
   live?: boolean
+  // Página própria em /portfolio/<slug> (fora do molde de case), ex.: produto real
+  custom?: boolean
 }
 
 export const projects: Project[] = [
@@ -66,17 +69,31 @@ export const projects: Project[] = [
     live: true,
   },
   {
+    slug: 'vertice-motors',
+    client: 'Vértice Motors',
+    domain: 'verticemotors.com.br',
+    segment: 'Automotivo',
+    system: 'Showroom de seminovos',
+    tagline: 'Do anúncio ao test drive sem o cliente sair do celular.',
+    challenge: 'A loja vendia pelo Instagram e por portais: o cliente perguntava preço e parcela por mensagem, esfriava na espera e a equipe repetia as mesmas respostas o dia inteiro.',
+    solution: 'Showroom próprio com estoque filtrável, simulador de financiamento, avaliação do usado na troca, comparador e agendamento de test drive em poucos toques.',
+    features: ['Estoque com filtros e comparador', 'Simulador de financiamento na hora', 'Avaliação do usado na troca', 'Agendamento de test drive'],
+    stack: ['Next.js', 'TypeScript', 'Tailwind', 'Framer Motion'],
+    brand: { bg: '#EDEEE9', fg: '#0E0F12', accent: '#D7263D', font: michroma.className },
+    live: true,
+  },
+  {
     slug: 'affiliabot',
     client: 'AffiliaBOT',
     domain: 'affiliabot.com.br',
     segment: 'SaaS · Afiliados',
     system: 'Plataforma de automação',
     tagline: 'Ofertas convertidas e repassadas 24 horas por dia.',
-    challenge: '',
-    solution: '',
-    features: [],
-    stack: ['FastAPI', 'React', 'PostgreSQL', 'Docker'],
+    challenge: 'Afiliados passavam o dia copiando ofertas de canais do Telegram, trocando links à mão e colando em dezenas de grupos de WhatsApp.',
+    solution: 'Um SaaS que ouve os canais, converte cada link para a tag do afiliado e repassa a oferta para os grupos em segundos, 24 horas por dia.',
+    features: ['Conversão automática de links Amazon, Mercado Livre e Shopee', 'Repasse Telegram → WhatsApp com foto ou card', 'Ritmo, selo e filtro de preço por rota', 'Relatório de vendas por nicho'],
+    stack: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'Node.js', 'Docker'],
     brand: { bg: '#0A0A0A', fg: '#FAFAFA', accent: '#FBBF24', font: spaceGrotesk.className },
-    soon: true,
+    custom: true,
   },
 ]
