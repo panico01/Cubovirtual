@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${project.client} · ${project.system} — Portfólio Cubo Virtual`,
     description: project.tagline,
+    alternates: { canonical: `/portfolio/${project.slug}/` },
   }
 }
 
@@ -56,7 +57,7 @@ export default async function ProjectPage({ params }: Props) {
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               {project.live ? (
-                <a href={`/portfolio/${project.slug}/app`} className="inline-flex min-h-14 items-center justify-center gap-3 border-2 border-ink bg-primary px-7 font-extrabold text-white shadow-brutal transition-transform hover:-translate-y-1">
+                <a href={`/portfolio/${project.slug}/app/`} className="inline-flex min-h-14 items-center justify-center gap-3 border-2 border-ink bg-primary px-7 font-extrabold text-white shadow-brutal transition-transform hover:-translate-y-1">
                   Abrir demo ao vivo <MonitorPlay size={21} aria-hidden="true" />
                 </a>
               ) : (

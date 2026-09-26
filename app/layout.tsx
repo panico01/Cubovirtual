@@ -15,11 +15,28 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cubovirtual.com.br"),
   title: "Cubo Virtual — Produtos digitais que movem negócios",
   description: "Sites, sistemas, aplicativos e marketing digital desenvolvidos para transformar presença online em resultado.",
+  openGraph: { type: "website", locale: "pt_BR", siteName: "Cubo Virtual" },
+  twitter: { card: "summary_large_image" },
   verification: {
     google: "m4h1GrjDlRyfhDfnNOporfqbjzGx2F8aoQCEThklQ8c",
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Cubo Virtual",
+  url: "https://cubovirtual.com.br/",
+  image: "https://cubovirtual.com.br/opengraph-image.png",
+  telephone: "+55-17-99119-1582",
+  email: "contato@cubovirtual.com.br",
+  address: { "@type": "PostalAddress", addressLocality: "Sumaré", addressRegion: "SP", addressCountry: "BR" },
+  areaServed: { "@type": "Country", name: "Brasil" },
+  priceRange: "R$ 29,90 – R$ 149,90/mês",
+  knowsAbout: ["Criação de sites", "Desenvolvimento de sistemas", "Aplicativos", "Tráfego pago", "Identidade visual"],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -58,6 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
       </head>
       <body className={jakarta.className}>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <ClientLayout>
           {children}
         </ClientLayout>

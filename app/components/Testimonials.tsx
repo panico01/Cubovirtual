@@ -25,7 +25,7 @@ export default function Testimonials() {
           {testimonials.map((item, index) => (
             <figure key={item.name} className="flex min-h-72 flex-col border-b border-r border-white/35 p-7 sm:p-8">
               <div className="flex items-center justify-between">
-                <div className="flex gap-1" aria-label="5 de 5 estrelas">
+                <div className="flex gap-1" role="img" aria-label="5 de 5 estrelas">
                   {[0, 1, 2, 3, 4].map((star) => <Star key={star} size={15} fill="currentColor" aria-hidden="true" />)}
                 </div>
                 <Quote size={25} className="text-white/60" aria-hidden="true" />

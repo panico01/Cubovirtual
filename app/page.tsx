@@ -13,6 +13,7 @@ import Portfolio from './components/Portfolio'
 export const metadata: Metadata = {
   title: 'Cubo Virtual — Sites e sistemas que trabalham pelo seu negócio',
   description: 'Criamos experiências digitais rápidas, estratégicas e prontas para transformar atenção em oportunidade.',
+  alternates: { canonical: '/' },
 }
 
 export default function Home() {
