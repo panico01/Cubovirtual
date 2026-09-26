@@ -62,9 +62,10 @@ export default function VerticeApp() {
               <li className="flex items-center gap-2"><GitCompare size={16} className="text-[#D7263D]" aria-hidden="true" /> Seu usado entra na troca</li>
             </ul>
           </div>
-          <motion.div initial={reduce ? false : { x: '-120%' }} animate={{ x: 0 }} transition={{ type: 'spring', stiffness: 60, damping: 14, delay: 0.2 }}>
+          {/* sem animação de entrada: a foto é o LCP e precisa pintar antes do JS */}
+          <div>
             <img src="/portfolio/vertice/compass.webp" alt="Jeep Compass vermelho" fetchPriority="high" className="aspect-[16/10] w-full rounded-3xl object-cover shadow-[0_30px_60px_-10px_rgba(215,38,61,.45)]" />
-          </motion.div>
+          </div>
         </div>
       </section>
 
