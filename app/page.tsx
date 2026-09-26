@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import WhyUs from './components/WhyUs'
 import ScrollAnimation from './components/ScrollAnimation'
 import Testimonials from './components/Testimonials'
+import Portfolio from './components/Portfolio'
 
 export const metadata: Metadata = {
   title: 'Cubo Virtual — Sites e sistemas que trabalham pelo seu negócio',
@@ -26,6 +27,10 @@ export default function Home() {
 
       <ScrollAnimation>
         <FullService />
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <Portfolio />
       </ScrollAnimation>
 
       <ScrollAnimation>

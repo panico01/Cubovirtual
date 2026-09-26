@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
           <div className="md:text-right">
             <p className="text-xs font-extrabold uppercase tracking-[.18em] text-canvas/55">Navegação</p>
-            <a href="#inicio" className="mt-4 inline-flex min-h-11 items-center gap-2 font-bold hover:text-accent">Voltar ao topo <ArrowUp size={18} aria-hidden="true" /></a>
+            <a href="#" className="mt-4 inline-flex min-h-11 items-center gap-2 font-bold hover:text-accent">Voltar ao topo <ArrowUp size={18} aria-hidden="true" /></a>
           </div>
         </div>
 

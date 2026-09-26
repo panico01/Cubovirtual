@@ -1,14 +1,16 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { ArrowUpRight, Box, Menu, X } from 'lucide-react'
 import { ThemeSwitcher } from './ThemeSwitcher'
 
 const navItems = [
-  { href: '#metodo', label: 'Método' },
-  { href: '#servicos', label: 'Soluções' },
-  { href: '#depoimentos', label: 'Resultados' },
-  { href: '#planos', label: 'Planos' },
+  { href: '/#metodo', label: 'Método' },
+  { href: '/#servicos', label: 'Soluções' },
+  { href: '/#portfolio', label: 'Portfólio' },
+  { href: '/#depoimentos', label: 'Resultados' },
+  { href: '/#planos', label: 'Planos' },
 ]
 
 export default function Header() {
@@ -17,12 +19,12 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b-2 border-line bg-canvas/95 backdrop-blur-md">
       <nav className="mx-auto flex min-h-[72px] max-w-[1440px] items-center justify-between px-5 sm:px-8" aria-label="Navegação principal">
-        <a href="#inicio" className="flex min-h-11 items-center gap-3 font-extrabold tracking-[-0.04em] transition-colors hover:text-primary">
+        <Link href="/" className="flex min-h-11 items-center gap-3 font-extrabold tracking-[-0.04em] transition-colors hover:text-primary">
           <span className="grid size-10 place-items-center border-2 border-ink bg-primary text-white shadow-brutal-sm" aria-hidden="true">
             <Box size={21} strokeWidth={2.5} />
           </span>
           <span className="text-lg">CUBO/VIRTUAL</span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-7 lg:flex">
           {navItems.map((item) => (
