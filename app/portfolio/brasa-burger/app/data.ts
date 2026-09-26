@@ -9,7 +9,6 @@ export type Product = {
   desc: string
   price: number
   layers?: Layer[] // só burgers; de baixo para cima
-  icon?: string
   tag?: string
 }
 export type Extra = { id: 'smash' | 'cheddar' | 'bacon' | 'cebola'; name: string; price: number }
@@ -44,14 +43,14 @@ export const products: Product[] = [
     layers: ['bottom', 'sauce', 'patty', 'cheese', 'bacon', 'top'] },
   { id: 'veggie', category: 'burgers', name: 'Brasa Veggie', desc: 'Burger de grão-de-bico na brasa, queijo, alface e tomate.', price: 34.9,
     layers: ['bottom', 'sauce', 'veggie', 'cheese', 'lettuce', 'tomato', 'top'] },
-  { id: 'batata', category: 'acompanhamentos', name: 'Batata rústica', desc: 'Com páprica defumada e maionese de alho.', price: 16.9, icon: '🍟' },
-  { id: 'onion', category: 'acompanhamentos', name: 'Onion rings', desc: 'Anéis de cebola empanados, crocantes por fora.', price: 18.9, icon: '🧅' },
-  { id: 'nuggets', category: 'acompanhamentos', name: 'Nuggets da casa', desc: '8 unidades com molho barbecue.', price: 19.9, icon: '🍗' },
-  { id: 'refri', category: 'bebidas', name: 'Refrigerante lata', desc: '350 ml, bem gelado.', price: 6.9, icon: '🥤' },
-  { id: 'limonada', category: 'bebidas', name: 'Limonada da casa', desc: 'Limão-siciliano, hortelã e gengibre. 500 ml.', price: 9.9, icon: '🍋' },
-  { id: 'shake', category: 'bebidas', name: 'Milkshake de Nutella', desc: 'Cremoso, com calda e chantilly. 400 ml.', price: 19.9, icon: '🥛' },
-  { id: 'brownie', category: 'sobremesas', name: 'Brownie com sorvete', desc: 'Brownie quente, sorvete de creme e calda.', price: 17.9, icon: '🍫' },
-  { id: 'cookie', category: 'sobremesas', name: 'Cookie gigante', desc: 'Massa amanteigada com gotas de chocolate.', price: 12.9, icon: '🍪' },
+  { id: 'batata', category: 'acompanhamentos', name: 'Batata rústica', desc: 'Com páprica defumada e maionese de alho.', price: 16.9 },
+  { id: 'onion', category: 'acompanhamentos', name: 'Onion rings', desc: 'Anéis de cebola empanados, crocantes por fora.', price: 18.9 },
+  { id: 'nuggets', category: 'acompanhamentos', name: 'Nuggets da casa', desc: '8 unidades com molho barbecue.', price: 19.9 },
+  { id: 'refri', category: 'bebidas', name: 'Refrigerante lata', desc: '350 ml, bem gelado.', price: 6.9 },
+  { id: 'limonada', category: 'bebidas', name: 'Limonada da casa', desc: 'Limão-siciliano, hortelã e gengibre. 500 ml.', price: 9.9 },
+  { id: 'shake', category: 'bebidas', name: 'Milkshake de morango', desc: 'Cremoso, com chantilly. 400 ml.', price: 19.9 },
+  { id: 'brownie', category: 'sobremesas', name: 'Brownie com sorvete', desc: 'Brownie quente, sorvete de creme e calda.', price: 17.9 },
+  { id: 'cookie', category: 'sobremesas', name: 'Cookie gigante', desc: 'Massa amanteigada com gotas de chocolate.', price: 12.9 },
 ]
 
 export const extras: Extra[] = [
@@ -65,6 +64,9 @@ export const DELIVERY_FEE = 5.9
 export const FREE_DELIVERY_FROM = 80
 export const COUPON = 'BRASA10'
 export const STEP_MS = 10_000 // demo acelerada: cada etapa do pedido leva 10 s
+
+// fotos reais em /public/portfolio/brasa/<id>.webp; créditos em credits.json
+export const photoOf = (id: string) => `/portfolio/brasa/${id}.webp`
 
 export const productOf = (id: string) => products.find((p) => p.id === id) ?? products[0]
 export const extraOf = (id: Extra['id']) => extras.find((e) => e.id === id)!

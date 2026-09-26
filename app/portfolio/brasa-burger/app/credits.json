@@ -1,0 +1,62 @@
+{
+ "classico": {
+  "author": "Renee Comet (photographer)",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Cheeseburger.jpg"
+ },
+ "double": {
+  "author": "Wiki.cullin",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Double_Smash_Burger_with_Fries.jpg"
+ },
+ "inferno": {
+  "author": "Famartin",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:2019-02-15_20_51_38_A_bacon_cheeseburger_and_french_fries_at_the_Applebee%27s_in_Fair_Lakes,_Fairfax_County,_Virginia.jpg"
+ },
+ "veggie": {
+  "author": "Zimt Zauberstab",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Veggie_Burger_(24835249468).jpg"
+ },
+ "batata": {
+  "author": "Luca Hammer from Paderborn, Germany",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Potato_wedges_at_Mensa_Paderborn_(11956794164).jpg"
+ },
+ "onion": {
+  "author": "Jess Sawrey from Los Angeles, California, USA",
+  "license": "CC BY 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Flickr_pancakejess_677476794--Onion_rings.jpg"
+ },
+ "nuggets": {
+  "author": "yoppy",
+  "license": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/44124362019@N01/639108699"
+ },
+ "refri": {
+  "author": "Darwin Bell",
+  "license": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/53611153@N00/305281265"
+ },
+ "limonada": {
+  "author": "PersonalCreations.com",
+  "license": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/127294011@N07/15072446911"
+ },
+ "shake": {
+  "author": "Samat Jain from New York City, USA",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Chili-mango_milkshake_-_Sparkys_-_Hatch_New_Mexico.jpg"
+ },
+ "brownie": {
+  "author": "Sirsendu.mohanta",
+  "license": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Walnut_brownie_with_ice-cream.jpg"
+ },
+ "cookie": {
+  "author": "Evan-Amos",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Choc-Chip-Cookie.jpg"
+ }
+}

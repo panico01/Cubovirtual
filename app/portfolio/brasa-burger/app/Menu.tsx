@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Bike, Clock, Flame, Plus, Star } from 'lucide-react'
-import { brl, categories, products, type Category, type Layer, type Product } from './data'
+import { brl, categories, photoOf, productOf, products, type Category, type Layer, type Product } from './data'
+import credits from './credits.json'
 
 const Burger3D = dynamic(() => import('./Burger3D'), { ssr: false })
 
@@ -120,9 +121,8 @@ export default function Menu({ onPick, onQuickAdd, aside }: { onPick: (p: Produc
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
                     className="group relative flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-[#1C1C1C] to-[#121212] p-5 text-left transition-colors hover:border-[#FF5A1F]/60">
                     {p.tag && <span className="absolute right-4 top-4 rounded-full bg-[#FF5A1F] px-2.5 py-1 text-xs font-extrabold uppercase tracking-wider text-black">{p.tag}</span>}
-                    <div className="relative mx-auto flex h-36 w-44 items-end justify-center">
-                      <span className="absolute bottom-0 h-4 w-40 rounded-[50%] bg-black/60 blur-md" aria-hidden="true" />
-                      <MiniBurger layers={p.layers!} className="relative w-40 transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-[-3deg]" />
+                    <div className="-mx-5 -mt-5 overflow-hidden">
+                      <img src={photoOf(p.id)} alt={p.name} loading="lazy" width={640} height={480} className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>
                     <p className={`${display} mt-5 text-2xl`}>{p.name}</p>
                     <p className="mt-1 text-sm text-white/60">{p.desc}</p>
@@ -137,7 +137,7 @@ export default function Menu({ onPick, onQuickAdd, aside }: { onPick: (p: Produc
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 {products.filter((p) => p.category === c.id).map((p) => (
                   <div key={p.id} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-[#161616] p-3">
-                    <span className="grid size-16 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#2A1A12] to-[#1A1A1A] text-3xl" aria-hidden="true">{p.icon}</span>
+                    <img src={photoOf(p.id)} alt="" loading="lazy" width={640} height={480} className="size-16 shrink-0 rounded-xl object-cover" />
                     <div className="min-w-0 flex-1">
                       <p className="font-bold">{p.name}</p>
                       <p className="line-clamp-1 text-xs text-white/55">{p.desc}</p>
@@ -153,6 +153,14 @@ export default function Menu({ onPick, onQuickAdd, aside }: { onPick: (p: Produc
             )}
           </section>
         ))}
+        <details className="text-xs text-white/65">
+          <summary className="cursor-pointer">Créditos das fotos (Wikimedia Commons e Flickr)</summary>
+          <ul className="mt-2 grid gap-1">
+            {Object.entries(credits).map(([id, c]) => (
+              <li key={id}>{productOf(id).name}: <a href={c.source} target="_blank" rel="noopener noreferrer" className="underline">{c.author}</a> ({c.license})</li>
+            ))}
+          </ul>
+        </details>
       </div>
       {aside}
       </div>

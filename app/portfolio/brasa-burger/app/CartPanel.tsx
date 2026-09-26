@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, Banknote, Bike, CreditCard, Minus, Plus, QrCode, ShoppingBag, Store, TicketPercent, X } from 'lucide-react'
 import { COUPON, FREE_DELIVERY_FROM, brl, extraOf, productOf, totals, unitPrice, type CartItem, type Mode, type Order, type Payment } from './data'
 import { MiniBurger, display } from './Menu'
-import { buildLayers } from './data'
+import { buildLayers, photoOf } from './data'
 
 const maskPhone = (value: string) => {
   const d = value.replace(/\D/g, '').slice(0, 11)
@@ -97,7 +97,7 @@ export default function CartPanel({ cart, setCart, open, onClose, onOrder }: {
                   return (
                     <motion.li key={item.key} layout initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20, height: 0 }} className="flex gap-3 py-4">
                       <span className="grid size-14 shrink-0 place-items-center rounded-xl bg-[#1E1E1E] text-2xl" aria-hidden="true">
-                        {p.layers ? <MiniBurger layers={buildLayers(p, item.extras)} className="w-11 scale-[.6]" /> : p.icon}
+                        {p.layers ? <MiniBurger layers={buildLayers(p, item.extras)} className="w-11 scale-[.6]" /> : <img src={photoOf(p.id)} alt="" width={640} height={480} className="size-full rounded-xl object-cover" />}
                       </span>
                       <div className="min-w-0 flex-1">
                         <p className="font-bold leading-tight">{p.name}</p>
