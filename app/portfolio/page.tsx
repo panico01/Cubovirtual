@@ -4,8 +4,8 @@ import Portfolio from '../components/Portfolio'
 import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Portfólio — Cubo Virtual',
-  description: 'Sistemas, plataformas e experiências digitais desenvolvidos pela Cubo Virtual.',
+  title: 'Portfólio de Sites e Sistemas | Cubo Virtual',
+  description: 'Veja sistemas funcionando: agendamento online para clínicas, CRM para imobiliárias, cardápio digital e showroom de carros. Navegue nas demos como se fosse o cliente.',
   alternates: { canonical: '/portfolio/' },
 }
 

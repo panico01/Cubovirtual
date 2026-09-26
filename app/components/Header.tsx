@@ -9,7 +9,6 @@ const navItems = [
   { href: '/#metodo', label: 'Método' },
   { href: '/#servicos', label: 'Soluções' },
   { href: '/#portfolio', label: 'Portfólio' },
-  { href: '/#depoimentos', label: 'Resultados' },
   { href: '/#planos', label: 'Planos' },
 ]
 

@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = await findProject(params)
   if (!project) return {}
   return {
-    title: `${project.client} · ${project.system} — Portfólio Cubo Virtual`,
-    description: project.tagline,
+    title: `${project.keyword} — case ${project.client} | Cubo Virtual`,
+    description: project.solution,
     alternates: { canonical: `/portfolio/${project.slug}/` },
   }
 }
@@ -47,8 +47,8 @@ export default async function ProjectPage({ params }: Props) {
             <Link href="/portfolio" className="flex min-h-11 w-fit items-center gap-2 text-sm font-bold text-subtle transition-colors hover:text-primary">
               <ArrowLeft size={16} aria-hidden="true" /> Portfólio
             </Link>
-            <p className="eyebrow mt-6 text-primary">{project.segment} · {project.system}</p>
-            <h1 className="section-title mt-6 text-balance">{project.client}</h1>
+            <h1 className="eyebrow mt-6 text-primary">{project.keyword}</h1>
+            <p className="section-title mt-6 text-balance">{project.client}</p>
             <p className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-subtle sm:text-xl">{project.tagline}</p>
 
             <ul className="mt-8 flex flex-wrap gap-2" aria-label="Tecnologias">
@@ -81,11 +81,11 @@ export default async function ProjectPage({ params }: Props) {
         <section className="border-b-2 border-line bg-card">
           <div className="mx-auto grid max-w-[1440px] px-5 py-16 sm:px-8 sm:py-20 md:grid-cols-2 md:gap-12">
             <div className="border-b-2 border-line pb-10 md:border-b-0 md:pb-0">
-              <p className="eyebrow text-primary">O desafio</p>
+              <h2 className="eyebrow text-primary">O desafio</h2>
               <p className="mt-6 text-xl font-semibold leading-relaxed sm:text-2xl">{project.challenge}</p>
             </div>
             <div className="pt-10 md:pt-0">
-              <p className="eyebrow text-primary">A solução</p>
+              <h2 className="eyebrow text-primary">A solução</h2>
               <p className="mt-6 text-xl font-semibold leading-relaxed sm:text-2xl">{project.solution}</p>
             </div>
           </div>
@@ -93,9 +93,18 @@ export default async function ProjectPage({ params }: Props) {
       </ScrollAnimation>
 
       <ScrollAnimation>
+        <section className="border-b-2 border-line bg-card">
+          <div className="mx-auto max-w-[1440px] px-5 py-16 sm:px-8 sm:py-20">
+            <h2 className="eyebrow text-primary">Para quem é · {project.segment}</h2>
+            <p className="mt-6 max-w-4xl text-xl font-semibold leading-relaxed sm:text-2xl">{project.forWho}</p>
+          </div>
+        </section>
+      </ScrollAnimation>
+
+      <ScrollAnimation>
         <section className="border-b-2 border-line">
           <div className="mx-auto max-w-[1440px] px-5 py-16 sm:px-8 sm:py-20">
-            <p className="eyebrow text-primary">O que o sistema faz</p>
+            <h2 className="eyebrow text-primary">O que o sistema faz</h2>
             <div className="mt-10 grid border-l-2 border-t-2 border-line sm:grid-cols-2 lg:grid-cols-4">
               {project.features.map((feature, index) => (
                 <div key={feature} className="flex min-h-44 flex-col justify-between border-b-2 border-r-2 border-line bg-card p-6 transition-colors hover:bg-muted">

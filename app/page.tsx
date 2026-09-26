@@ -7,12 +7,11 @@ import Faq from './components/Faq'
 import Footer from './components/Footer'
 import WhyUs from './components/WhyUs'
 import ScrollAnimation from './components/ScrollAnimation'
-import Testimonials from './components/Testimonials'
 import Portfolio from './components/Portfolio'
 
 export const metadata: Metadata = {
-  title: 'Cubo Virtual — Sites e sistemas que trabalham pelo seu negócio',
-  description: 'Criamos experiências digitais rápidas, estratégicas e prontas para transformar atenção em oportunidade.',
+  title: 'Criação de Sites e Sistemas sob Medida | Cubo Virtual',
+  description: 'Criação de sites, sistemas sob medida, aplicativos e tráfego pago para empresas de todo o Brasil. Planos a partir de R$ 29,90/mês e atendimento pelo WhatsApp.',
   alternates: { canonical: '/' },
 }
 
@@ -32,10 +31,6 @@ export default function Home() {
 
       <ScrollAnimation>
         <Portfolio />
-      </ScrollAnimation>
-
-      <ScrollAnimation>
-        <Testimonials />
       </ScrollAnimation>
 
       <ScrollAnimation>

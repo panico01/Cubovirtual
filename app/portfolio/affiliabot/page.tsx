@@ -10,7 +10,7 @@ import { projects } from '../projects'
 const project = projects.find((p) => p.slug === 'affiliabot')!
 
 export const metadata: Metadata = {
-  title: 'AffiliaBOT · Estudo de caso — Portfólio Cubo Virtual',
+  title: 'AffiliaBOT: Automação de Ofertas de Afiliados no WhatsApp | Cubo Virtual',
   description: 'Como a Cubo Virtual construiu o AffiliaBOT, SaaS que converte e repassa ofertas de afiliados do Telegram para o WhatsApp 24 horas por dia.',
   alternates: { canonical: '/portfolio/affiliabot/' },
 }

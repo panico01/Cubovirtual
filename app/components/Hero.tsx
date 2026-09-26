@@ -8,11 +8,11 @@ export default function Hero() {
       <div className="mx-auto grid min-h-[calc(100vh-72px)] max-w-[1440px] lg:grid-cols-[1.15fr_.85fr]">
         <div className="flex flex-col justify-between border-line px-5 py-16 sm:px-8 sm:py-20 lg:border-r-2 lg:py-24">
           <div>
-            <p className="eyebrow text-primary">Agência digital full service</p>
-            <h1 className="display-title mt-8 max-w-5xl text-balance">
+            <h1 className="eyebrow text-primary">Criação de sites e sistemas sob medida</h1>
+            <p className="display-title mt-8 max-w-5xl text-balance">
               Ideias digitais.<br />
               <span className="text-primary">Impacto real.</span>
-            </h1>
+            </p>
             <p className="mt-8 max-w-2xl text-lg font-medium leading-relaxed text-subtle sm:text-xl">
               Projetamos sites, sistemas e estratégias que transformam presença online em oportunidade de negócio.
             </p>

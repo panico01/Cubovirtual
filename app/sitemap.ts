@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${site}/`, priority: 1 },
     { url: `${site}/portfolio/`, priority: 0.8 },
+    { url: `${site}/privacidade/`, priority: 0.2 },
     ...projects.filter((p) => !p.soon).map((p) => ({ url: `${site}/portfolio/${p.slug}/`, priority: 0.6 })),
   ]
 }

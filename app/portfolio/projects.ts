@@ -11,6 +11,8 @@ export type Project = {
   domain?: string // só para produto real; marcas fictícias não mostram endereço
   segment: string
   system: string
+  keyword: string // termo de busca que a página do case mira (título e H1)
+  forWho: string
   tagline: string
   challenge: string
   solution: string
@@ -31,6 +33,8 @@ export const projects: Project[] = [
     client: 'Vitalle Clínica',
     segment: 'Saúde & estética',
     system: 'Agendamento online',
+    keyword: 'Sistema de agendamento online para clínicas',
+    forWho: 'Clínicas de estética, consultórios, dentistas, fisioterapeutas e salões que ainda marcam horário por WhatsApp e telefone. O paciente escolhe serviço, profissional e horário sozinho, a qualquer hora, e a recepção para de apagar incêndio: menos faltas, nenhum horário duplicado e a agenda da equipe inteira em uma tela só.',
     tagline: 'Agenda cheia sem ninguém preso ao telefone.',
     challenge: 'Agendamentos por WhatsApp e telefone geravam horários duplicados, faltas sem aviso e uma recepção sobrecarregada.',
     solution: 'Página pública de agendamento com horários em tempo real, confirmação automática por WhatsApp e um painel de agenda para toda a equipe.',
@@ -44,6 +48,8 @@ export const projects: Project[] = [
     client: 'Horizonte Imóveis',
     segment: 'Mercado imobiliário',
     system: 'CRM de vendas',
+    keyword: 'CRM para imobiliárias',
+    forWho: 'Imobiliárias e corretores autônomos que recebem leads de portais, Instagram e indicação e acompanham tudo em planilha ou no WhatsApp. Cada contato entra no funil, vai para um corretor e ganha histórico, e a diretoria vê em tempo real quantas visitas, propostas e vendas saíram no mês.',
     tagline: 'Cada lead no lugar certo. Cada corretor sabendo o próximo passo.',
     challenge: 'Leads de portais e do Instagram se perdiam em planilhas; ninguém sabia quem já tinha atendido quem nem em que etapa estava cada negociação.',
     solution: 'Funil visual por etapa, distribuição de leads entre corretores e um painel com os números que importam para a diretoria.',
@@ -57,6 +63,8 @@ export const projects: Project[] = [
     client: 'Brasa Burger Co.',
     segment: 'Food service',
     system: 'Cardápio digital e delivery',
+    keyword: 'Cardápio digital com pedido direto para delivery',
+    forWho: 'Hamburguerias, pizzarias, restaurantes e dark kitchens que pagam comissão alta aos aplicativos de entrega. Com cardápio próprio, o pedido chega direto, sem taxa por venda, e o cliente fica com você: dá para chamar de volta com cupom, combo novo ou programa de fidelidade.',
     tagline: 'Do cardápio ao portão, sem taxa de marketplace.',
     challenge: 'A hamburgueria dependia de aplicativos de entrega com comissões altas e nenhum relacionamento direto com os próprios clientes.',
     solution: 'Cardápio próprio com pedido direto, carrinho com adicionais, checkout rápido e acompanhamento do pedido em tempo real.',
@@ -70,6 +78,8 @@ export const projects: Project[] = [
     client: 'Vértice Motors',
     segment: 'Automotivo',
     system: 'Showroom de seminovos',
+    keyword: 'Site para loja de carros seminovos',
+    forWho: 'Lojas de seminovos, revendas e concessionárias que vendem pelo Instagram e pelos portais e respondem o dia inteiro às mesmas perguntas de preço e parcela. O cliente filtra o estoque, simula o financiamento, avalia o carro na troca e agenda o test drive sem esperar resposta.',
     tagline: 'Do anúncio ao test drive sem o cliente sair do celular.',
     challenge: 'A loja vendia pelo Instagram e por portais: o cliente perguntava preço e parcela por mensagem, esfriava na espera e a equipe repetia as mesmas respostas o dia inteiro.',
     solution: 'Showroom próprio com estoque filtrável, simulador de financiamento, avaliação do usado na troca, comparador e agendamento de test drive em poucos toques.',
@@ -84,6 +94,8 @@ export const projects: Project[] = [
     domain: 'affiliabot.com.br',
     segment: 'SaaS · Afiliados',
     system: 'Plataforma de automação',
+    keyword: 'Automação de ofertas de afiliados no WhatsApp',
+    forWho: 'Afiliados da Amazon, Mercado Livre e Shopee que administram grupos de ofertas no WhatsApp e perdem horas copiando links do Telegram.',
     tagline: 'Ofertas convertidas e repassadas 24 horas por dia.',
     challenge: 'Afiliados passavam o dia copiando ofertas de canais do Telegram, trocando links à mão e colando em dezenas de grupos de WhatsApp.',
     solution: 'Um SaaS que ouve os canais, converte cada link para a tag do afiliado e repassa a oferta para os grupos em segundos, 24 horas por dia.',

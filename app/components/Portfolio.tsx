@@ -116,15 +116,13 @@ function Card({ project }: { project: Project }) {
 }
 
 export default function Portfolio({ standalone = false }: { standalone?: boolean }) {
-  const Title = standalone ? 'h1' : 'h2'
-
   return (
     <section id="portfolio" className="border-b-2 border-line bg-card">
       <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 sm:py-28">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
-            <p className="eyebrow text-primary">Portfólio</p>
-            <Title className="section-title mt-6 max-w-4xl text-balance">Não mostramos print. Mostramos sistema.</Title>
+            {standalone ? <h1 className="eyebrow text-primary">Portfólio de sites e sistemas</h1> : <p className="eyebrow text-primary">Portfólio</p>}
+            <h2 className="section-title mt-6 max-w-4xl text-balance">Não mostramos print. Mostramos sistema.</h2>
           </div>
           <p className="max-w-sm text-base font-medium text-subtle">
             Projetos-conceito com marcas fictícias e sistemas funcionando de verdade. Navegue como se fosse o cliente.

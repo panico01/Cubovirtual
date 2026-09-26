@@ -36,7 +36,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-3 border-t border-canvas/25 pt-6 text-xs font-semibold uppercase tracking-wider text-canvas/55 sm:flex-row sm:justify-between">
-          <p>© {new Date().getFullYear()} Cubo Virtual</p>
+          <p>© {new Date().getFullYear()} Cubo Virtual · Sumaré-SP · <a href="/privacidade/" className="hover:text-accent">Política de Privacidade</a></p>
           <p>Feito para mover negócios</p>
         </div>
       </div>
