@@ -8,7 +8,7 @@ const michroma = Michroma({ subsets: ['latin'], weight: '400', display: 'swap' }
 export type Project = {
   slug: string
   client: string
-  domain: string
+  domain?: string // só para produto real; marcas fictícias não mostram endereço
   segment: string
   system: string
   tagline: string
@@ -29,7 +29,6 @@ export const projects: Project[] = [
   {
     slug: 'vitalle',
     client: 'Vitalle Clínica',
-    domain: 'vitalle.com.br',
     segment: 'Saúde & estética',
     system: 'Agendamento online',
     tagline: 'Agenda cheia sem ninguém preso ao telefone.',
@@ -43,7 +42,6 @@ export const projects: Project[] = [
   {
     slug: 'horizonte-imoveis',
     client: 'Horizonte Imóveis',
-    domain: 'horizonteimoveis.com.br',
     segment: 'Mercado imobiliário',
     system: 'CRM de vendas',
     tagline: 'Cada lead no lugar certo. Cada corretor sabendo o próximo passo.',
@@ -57,7 +55,6 @@ export const projects: Project[] = [
   {
     slug: 'brasa-burger',
     client: 'Brasa Burger Co.',
-    domain: 'brasaburger.com.br',
     segment: 'Food service',
     system: 'Cardápio digital e delivery',
     tagline: 'Do cardápio ao portão, sem taxa de marketplace.',
@@ -71,7 +68,6 @@ export const projects: Project[] = [
   {
     slug: 'vertice-motors',
     client: 'Vértice Motors',
-    domain: 'verticemotors.com.br',
     segment: 'Automotivo',
     system: 'Showroom de seminovos',
     tagline: 'Do anúncio ao test drive sem o cliente sair do celular.',
@@ -93,7 +89,7 @@ export const projects: Project[] = [
     solution: 'Um SaaS que ouve os canais, converte cada link para a tag do afiliado e repassa a oferta para os grupos em segundos, 24 horas por dia.',
     features: ['Conversão automática de links Amazon, Mercado Livre e Shopee', 'Repasse Telegram → WhatsApp com foto ou card', 'Ritmo, selo e filtro de preço por rota', 'Relatório de vendas por nicho'],
     stack: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'Node.js', 'Docker'],
-    brand: { bg: '#0A0A0A', fg: '#FAFAFA', accent: '#FBBF24', font: spaceGrotesk.className },
+    brand: { bg: '#07090E', fg: '#E9EDF5', accent: '#3B82F6', font: spaceGrotesk.className },
     custom: true,
   },
 ]

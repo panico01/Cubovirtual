@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowLeft, ArrowUpRight, Boxes, Gauge, Image as ImageIcon, KeyRound, LifeBuoy, Link2, ShieldCheck, Tag, TrendingUp } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight, Boxes, MonitorPlay, Gauge, Image as ImageIcon, KeyRound, LifeBuoy, Link2, ShieldCheck, Tag, TrendingUp } from 'lucide-react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import ScrollAnimation from '../../components/ScrollAnimation'
@@ -50,8 +50,11 @@ export default function AffiliabotCase() {
               {project.stack.map((tech) => <li key={tech} className="border-2 border-line bg-card px-3 py-1 text-xs font-extrabold tracking-wide">{tech}</li>)}
             </ul>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a href="https://affiliabot.com.br" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-14 items-center justify-center gap-3 border-2 border-ink bg-primary px-7 font-extrabold text-white shadow-brutal transition-transform hover:-translate-y-1">
-                Conhecer o AffiliaBOT <ArrowUpRight size={21} aria-hidden="true" />
+              <Link href="/portfolio/affiliabot/app/" className="inline-flex min-h-14 items-center justify-center gap-3 border-2 border-ink bg-primary px-7 font-extrabold text-white shadow-brutal transition-transform hover:-translate-y-1">
+                Abrir demo ao vivo <MonitorPlay size={21} aria-hidden="true" />
+              </Link>
+              <a href="https://affiliabot.com.br" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-14 items-center justify-center gap-3 border-2 border-ink bg-card px-7 font-extrabold transition-transform hover:-translate-y-1">
+                Conhecer o produto <ArrowUpRight size={21} aria-hidden="true" />
               </a>
               <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-14 items-center justify-center gap-3 border-2 border-ink bg-accent px-7 font-extrabold text-black transition-transform hover:-translate-y-1">
                 Quero um sistema assim <ArrowUpRight size={21} aria-hidden="true" />

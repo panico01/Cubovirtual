@@ -75,7 +75,7 @@ export function BrandPreview({ project }: { project: Project }) {
       />
       <div className="relative flex items-center gap-1.5 border-b px-3 py-2" style={{ borderColor: `${fg}26` }}>
         {[0, 1, 2].map((i) => <span key={i} className="size-2 rounded-full" style={{ background: `${fg}40` }} />)}
-        <span className="ml-2 truncate rounded px-2 py-0.5 text-[10px] font-semibold" style={{ background: `${fg}14` }}>{project.domain}</span>
+        {project.domain && <span className="ml-2 truncate rounded px-2 py-0.5 text-[10px] font-semibold" style={{ background: `${fg}14` }}>{project.domain}</span>}
       </div>
       <div className="relative flex h-[calc(100%-2.25rem)] flex-col justify-between p-4 sm:p-6">
         <div>
