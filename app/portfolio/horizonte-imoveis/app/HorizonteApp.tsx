@@ -162,7 +162,7 @@ export default function HorizonteApp() {
               <span className="size-8 animate-spin rounded-full border-2 border-white/15 border-t-[#2DD4BF]" aria-label="Carregando" />
             </div>
           ) : (
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" initial={false}>
               <motion.div key={view} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.25 }} className="mt-6">
                 {view === 'painel'
                   ? <Dashboard leads={leads} now={now} onOpen={setOpenId} />

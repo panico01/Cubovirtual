@@ -205,7 +205,7 @@ export default function Booking({ appts, onBook, onSeeClinic }: {
   )
 }
 
-function Hero() {
+export function Hero() {
   const reduce = useReducedMotion()
   const float = (x: number, y: number, duration: number) =>
     reduce ? {} : { animate: { x: [0, x, 0], y: [0, y, 0] }, transition: { duration, repeat: Infinity, ease: 'easeInOut' as const } }

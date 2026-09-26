@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, ArrowUpRight, CircleAlert, CircleCheck } from 'lucide-react'
-import Booking from './Booking'
+import Booking, { Hero } from './Booking'
 import Clinic from './Clinic'
 import { seed, toKey, weekStart, type Appt } from './data'
 
@@ -65,11 +65,13 @@ export default function VitalleApp() {
       </header>
 
       {!appts ? (
-        <div className="grid min-h-[calc(100dvh-3rem)] place-items-center">
-          <span className="size-8 animate-spin rounded-full border-2 border-[#1F3A2E]/20 border-t-[#B08D57]" aria-label="Carregando" />
+        // o Hero é estático: sai no HTML e vira o LCP sem esperar o JS ler a agenda salva
+        <div className="grid min-h-[calc(100dvh-3rem)] lg:grid-cols-[.85fr_1.15fr]">
+          <Hero />
+          <span className="m-auto block py-16"><span className="block size-8 animate-spin rounded-full border-2 border-[#1F3A2E]/20 border-t-[#B08D57]" aria-label="Carregando" /></span>
         </div>
       ) : (
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div key={view} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.25 }}>
             {view === 'paciente' ? (
               <Booking
