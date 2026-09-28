@@ -17,6 +17,17 @@ function Screen({ project }: { project: Project }) {
           ))}
         </div>
       )
+    case 'rusa-semijoias':
+      return (
+        <div className="grid grid-cols-4 gap-2">
+          {[0, 1, 2, 3].map((i) => (
+            <div key={i} className="space-y-1.5">
+              <span className="block aspect-square rounded-md" style={i === 1 ? hot : dim} />
+              <span className="block h-1.5 w-2/3 rounded-full" style={dim} />
+            </div>
+          ))}
+        </div>
+      )
     case 'horizonte-imoveis':
       return (
         <div className="grid grid-cols-3 gap-2">
@@ -125,7 +136,7 @@ export default function Portfolio({ standalone = false }: { standalone?: boolean
             <h2 className="section-title mt-6 max-w-4xl text-balance">Não mostramos print. Mostramos sistema.</h2>
           </div>
           <p className="max-w-sm text-base font-medium text-subtle">
-            Projetos-conceito com marcas fictícias e sistemas funcionando de verdade. Navegue como se fosse o cliente.
+            Sites de clientes no ar e projetos-conceito com sistemas funcionando de verdade. Navegue como se fosse o cliente.
           </p>
         </div>
 

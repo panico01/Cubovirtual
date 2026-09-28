@@ -56,7 +56,11 @@ export default async function ProjectPage({ params }: Props) {
             </ul>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              {project.live ? (
+              {project.real && project.domain ? (
+                <a href={`https://${project.domain}/`} target="_blank" rel="noopener" className="inline-flex min-h-14 items-center justify-center gap-3 border-2 border-ink bg-primary px-7 font-extrabold text-white shadow-brutal transition-transform hover:-translate-y-1">
+                  Visitar o site <ArrowUpRight size={21} aria-hidden="true" />
+                </a>
+              ) : project.live ? (
                 <a href={`/portfolio/${project.slug}/app/`} className="inline-flex min-h-14 items-center justify-center gap-3 border-2 border-ink bg-primary px-7 font-extrabold text-white shadow-brutal transition-transform hover:-translate-y-1">
                   Abrir demo ao vivo <MonitorPlay size={21} aria-hidden="true" />
                 </a>
@@ -115,9 +119,9 @@ export default async function ProjectPage({ params }: Props) {
                 </div>
               ))}
             </div>
-            <p className="mt-8 max-w-2xl text-sm text-subtle">
+            {!project.real && <p className="mt-8 max-w-2xl text-sm text-subtle">
               Projeto demonstrativo: marca, dados e cenário são fictícios, criados pela Cubo Virtual para mostrar como entregamos sistemas sob medida.
-            </p>
+            </p>}
           </div>
         </section>
       </ScrollAnimation>

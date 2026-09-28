@@ -23,11 +23,29 @@ export type Project = {
   soon?: boolean
   // Demo interativa em /portfolio/<slug>/app já publicada
   live?: boolean
+  // Site de cliente real no ar em https://<domain>: o case leva ao site em vez de uma demo
+  real?: boolean
   // Página própria em /portfolio/<slug> (fora do molde de case), ex.: produto real
   custom?: boolean
 }
 
 export const projects: Project[] = [
+  {
+    slug: 'rusa-semijoias',
+    client: 'Rusa Semijoias',
+    domain: 'rusasemijoias.com.br',
+    segment: 'Moda · Semijoias',
+    system: 'Loja virtual com painel de gestão',
+    keyword: 'Loja virtual para semijoias',
+    forWho: 'Lojas de semijoias, acessórios e moda que vendem pelo Instagram e pelo WhatsApp e querem um catálogo próprio, sem mensalidade de plataforma. A cliente navega por coleção e categoria, monta o carrinho e fecha o pedido com uma consultora no WhatsApp; a loja controla estoque, pedidos, cupons e vendas de cada vendedora em um painel só.',
+    tagline: 'Catálogo elegante na vitrine, gestão completa nos bastidores.',
+    challenge: 'As vendas aconteciam no direct e no WhatsApp: fotos soltas, preço repetido a cada mensagem e nenhum controle de estoque, pedidos ou comissão das vendedoras.',
+    solution: 'Loja virtual própria com catálogo por coleção e categoria, carrinho que envia o pedido pronto para o WhatsApp e painel administrativo com pedidos, estoque, cupons, vendedoras e vendas manuais.',
+    features: ['Catálogo por coleção, categoria e banho', 'Carrinho que envia o pedido pelo WhatsApp', 'Painel com pedidos, cupons e vendedoras', 'Importação de produtos por planilha'],
+    stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Docker'],
+    brand: { bg: '#F9E7EB', fg: '#351019', accent: '#7B303F', font: cormorant.className },
+    real: true,
+  },
   {
     slug: 'vitalle',
     client: 'Vitalle Clínica',
