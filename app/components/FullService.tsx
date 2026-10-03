@@ -22,8 +22,8 @@ export default function FullService() {
         </div>
 
         <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {services.map(({ icon: Icon, code, title, text }, index) => (
-            <article key={code} className={`group relative min-h-72 overflow-hidden border-2 border-line bg-card p-7 transition-all hover:-translate-y-1 hover:border-ink hover:shadow-brutal ${index === 0 ? 'lg:col-span-2' : ''}`}>
+          {services.map(({ icon: Icon, code, title, text }) => (
+            <article key={code} className={`group relative min-h-72 overflow-hidden border-2 border-line bg-card p-7 transition-all hover:-translate-y-1 hover:border-ink hover:shadow-brutal`}>
               <div className="flex items-start justify-between">
                 <span className="border-2 border-line px-2 py-1 text-xs font-extrabold tracking-widest">{code}</span>
                 <Icon size={30} strokeWidth={1.8} aria-hidden="true" />
