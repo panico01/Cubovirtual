@@ -1,4 +1,4 @@
-import { ArrowUp, ArrowUpRight, Mail, MessageCircle } from 'lucide-react'
+import { ArrowUp, ArrowUpRight, Mail } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -27,7 +27,7 @@ export default function Footer() {
           <div>
             <p className="text-xs font-extrabold uppercase tracking-[.18em] text-canvas/55">Contato</p>
             <a href="mailto:contato@cubovirtual.com.br" className="mt-4 flex min-h-11 items-center gap-3 font-bold hover:text-accent"><Mail size={18} aria-hidden="true" /> contato@cubovirtual.com.br</a>
-            <a href="https://wa.me/5517991191582" className="flex min-h-11 items-center gap-3 font-bold hover:text-accent"><MessageCircle size={18} aria-hidden="true" /> (17) 99119-1582</a>
+            <a href="https://wa.me/5517991191582" className="flex min-h-11 items-center gap-3 font-bold hover:text-accent"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4.1-4.9-4.3-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.3z"/></svg> (17) 99119-1582</a>
           </div>
           <div className="md:text-right">
             <p className="text-xs font-extrabold uppercase tracking-[.18em] text-canvas/55">Navegação</p>
