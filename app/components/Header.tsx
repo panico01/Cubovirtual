@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ArrowUpRight, Box, Menu, X } from 'lucide-react'
+import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { ThemeSwitcher } from './ThemeSwitcher'
 
 const navItems = [
@@ -20,7 +20,11 @@ export default function Header() {
       <nav className="mx-auto flex min-h-[72px] max-w-[1440px] items-center justify-between px-5 sm:px-8" aria-label="Navegação principal">
         <Link href="/" className="flex min-h-11 items-center gap-3 font-extrabold tracking-[-0.04em] transition-colors hover:text-primary">
           <span className="grid size-10 place-items-center border-2 border-ink bg-primary text-white shadow-brutal-sm" aria-hidden="true">
-            <Box size={21} strokeWidth={2.5} />
+            <svg viewBox="18 14 64 72" className="size-6">
+              <path d="M50 18 78 34 50 50 22 34Z" fill="#fff" />
+              <path d="M22 34 50 50V82L22 66Z" fill="#bfdbfe" />
+              <path d="M78 34 50 50V82L78 66Z" fill="#93c5fd" />
+            </svg>
           </span>
           <span className="text-lg">CUBO/VIRTUAL</span>
         </Link>

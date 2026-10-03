@@ -1,4 +1,4 @@
-import { ArrowUp, ArrowUpRight, Box, Mail, MessageCircle } from 'lucide-react'
+import { ArrowUp, ArrowUpRight, Mail, MessageCircle } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -21,7 +21,7 @@ export default function Footer() {
 
         <div className="grid gap-10 py-12 md:grid-cols-3">
           <div>
-            <div className="flex items-center gap-3 text-lg font-extrabold tracking-[-.04em]"><Box aria-hidden="true" /> CUBO/VIRTUAL</div>
+            <div className="flex items-center gap-3 text-lg font-extrabold tracking-[-.04em]"><img src="/icon.png" alt="" className="size-7" /> CUBO/VIRTUAL</div>
             <p className="mt-4 max-w-sm text-sm text-canvas/65">Estratégia, design e tecnologia trabalhando juntos para mover negócios.</p>
           </div>
           <div>
