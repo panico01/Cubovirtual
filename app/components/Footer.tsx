@@ -21,7 +21,7 @@ export default function Footer() {
 
         <div className="grid gap-10 py-12 md:grid-cols-3">
           <div>
-            <div className="flex items-center gap-3 text-lg font-extrabold tracking-[-.04em]"><img src="/icon.png" alt="" className="size-7" /> CUBO/VIRTUAL</div>
+            <div className="flex items-center gap-3 text-lg font-extrabold tracking-[-.04em]"><svg viewBox="0 0 100 100" className="size-7" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#2563eb" /><path d="M50 18 78 34 50 50 22 34Z" fill="#fff" /><path d="M22 34 50 50V82L22 66Z" fill="#bfdbfe" /><path d="M78 34 50 50V82L78 66Z" fill="#93c5fd" /></svg> CUBO/VIRTUAL</div>
             <p className="mt-4 max-w-sm text-sm text-canvas/65">Estratégia, design e tecnologia trabalhando juntos para mover negócios.</p>
           </div>
           <div>
